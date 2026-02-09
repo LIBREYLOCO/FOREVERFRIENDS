@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Friends - Presentación Corporativa</title>
+    <link rel="stylesheet" href="site.css">
+    <!-- Note: style.css is no longer needed as styles are merged/overridden in site.css for the frame -->
+</head>
+
+<body>
+
+    <!-- Header (Same as index.html) -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.jpg" alt="Forever Friends Logo" class="logo-img">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#welcome">Nosotros</a></li>
+                    <li><a href="index.html#services">Servicios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="index.html#presentation" class="active btn-presentation">Ver Presentaciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Presentation Section -->
+    <section class="presentation-section">
+        <h2>Nuestra Propuesta de Valor</h2>
+        <p style="max-width: 600px; margin: 0 auto 30px; color: var(--text-light);">
+            Descubra cómo Forever Friends transforma el cuidado y la despedida de las mascotas en un homenaje lleno de
+            amor y respeto.
+        </p>
+
+        <!-- Cinema Frame -->
+        <div class="slideshow-frame">
+            <div class="presentation-container">
+                <div class="slides-wrapper" id="slidesWrapper">
+                    <!-- Slides injected by JS -->
+                </div>
+
+                <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Forever Friends México</h4>
+                <p>Brindando paz y consuelo a las familias cuando más lo necesitan.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Teléfono: (55) 1234-5678</p>
+                <p>Email: contacto@foreverfriends.mx</p>
+                <p>CDMX, México</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a><br>
+                <a href="index.html#services">Servicios</a><br>
+                <a href="#">Presentación Corporativa</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Forever Friends México. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

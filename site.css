@@ -1,0 +1,858 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #5D737E;
+    /* Muted Slate Blue/Green */
+    --secondary-color: #F5F1E8;
+    /* Cream/Off-White */
+    --accent-color: #A9B4C2;
+    /* Light Blue Grey */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --white: #ffffff;
+    --gold: #C0A062;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+}
+
+/* Titles and Headings */
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 10px auto 0;
+}
+
+/* Header */
+header {
+    background: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
+
+.btn-presentation {
+    background-color: var(--gold);
+    color: var(--white) !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-presentation:hover {
+    background-color: #b08d55;
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background-color: var(--primary-color);
+    /* Fallback if image fails */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero_background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    /* overflow: hidden; Removed to ensure frame is visible if desired, but frame itself has overflow hidden */
+}
+
+.hero-carousel-frame {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+    /* Subtle border hint */
+}
+
+.hero-carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 3s ease-in-out, transform 20s ease;
+    /* Slower fade (3s) & very slow zoom (20s) */
+    transform: scale(1.0);
+    filter: blur(4px);
+    /* Requested blur effect */
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: scale(1.15);
+    /* Subtle Ken Burns effect */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Darken images for text readability */
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    z-index: 3;
+    /* Ensure text is above carousel */
+    /* animation: fadeIn 1.5s ease; Removed to ensure visibility */
+}
+
+/* Logo Animation & Effects */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.hero-logo {
+    width: 450px;
+    max-width: 90%;
+    /* Increased size significantly */
+    height: auto;
+    margin-top: 120px;
+    /* Pushed down further as requested */
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+    /* Glow + Shadow */
+    animation: fadeIn 1.5s ease, float 4s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+/* Features/About Section */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.service-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Quote Section */
+.quote-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.quote-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote-content p {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 60px 20px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-col p,
+.footer-col a {
+    color: #bdc3c7;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-decoration: none;
+}
+
+/* Logo Image Styling */
+.logo-img {
+    height: 80px;
+    /* Adjust based on logo proportions */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* Emotional Grid Section */
+.emotional-section {
+    background-color: var(--white);
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.emotional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.emotional-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.emotional-card:hover {
+    transform: translateY(-8px);
+}
+
+.emotional-card img {
+    width: 100%;
+    height: 300px;
+    /* Uniform height */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.emotional-card:hover img {
+    transform: scale(1.03);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+/* Utils */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #4a5d66;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Embedded Presentation Styles */
+.presentation-section {
+    padding: 60px 20px;
+    background-color: #f0f2f5;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.slideshow-frame {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #000;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3),
+        0 0 0 5px #2c3e50,
+        /* Outer Rim */
+        0 0 0 8px #C0A062;
+    /* Gold Trim */
+    position: relative;
+    aspect-ratio: 16/9;
+}
+
+/* Override existing slideshow generic styles to fit frame */
+.presentation-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    border-radius: 10px;
+}
+
+.slides-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    background: rgba(192, 160, 98, 0.8);
+    /* Gold hover */
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* Presentation Video Styles */
+/* iPad Device Simulation */
+/* iPad Device Simulation */
+/* iPhone Device Simulation */
+.iphone-device {
+    max-width: 360px;
+    /* iPhone width */
+    width: 90%;
+    margin: 40px auto;
+    background: #000;
+    /* Deep black body */
+    border-radius: 50px;
+    /* More rounded corners */
+    padding: 15px;
+    /* Bezel thickness */
+    position: relative;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        inset 0 0 4px rgba(255, 255, 255, 0.2);
+    /* Subtle frame highlight */
+    border: 4px solid #333;
+    /* Outer frame */
+}
+
+/* Dynamic Island / Notch */
+.iphone-notch {
+    position: absolute;
+    top: 25px;
+    /* Position inside screen area */
+    left: 50%;
+    width: 100px;
+    height: 28px;
+    background: #000;
+    border-radius: 14px;
+    transform: translateX(-50%);
+    z-index: 20;
+    /* On top of screen content */
+}
+
+.iphone-screen {
+    background-color: #000;
+    /* Fallback */
+    border-radius: 40px;
+    /* Screen corner radius matches device */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/19.5;
+    /* Modern iPhone Aspect Ratio */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Blurred Wallpaper */
+.iphone-screen::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    /* Larger than container */
+    background: url('logo.jpg') center/cover no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+    /* Blur effect requested */
+    transform: scale(1.1);
+    /* Scale to cover blurred edges */
+    z-index: 1;
+    /* Below apps but above background color */
+}
+
+/* Ensure apps are on top */
+.app-view {
+    z-index: 2;
+    /* Increased to sit above blurred background */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background: transparent;
+}
+
+.presentation-video {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .iphone-device {
+        border-radius: 40px;
+        border-width: 2px;
+    }
+
+    .iphone-notch {
+        width: 80px;
+        height: 24px;
+        top: 20px;
+    }
+}
+
+
+/* iPad OS Interface */
+.app-view {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background: transparent;
+    /* Changed from #000 to allow wallpaper to show */
+}
+
+.app-view.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+    transform: scale(1);
+}
+
+.app-view.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transform: scale(0.9);
+}
+
+/* Home Screen Grid */
+#iphone-home {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 85px;
+    /* Fixed row height for grid alignment */
+    gap: 15px;
+    padding: 60px 15px 20px 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* Utility Apps (Top Row - De-emphasized) */
+.utility-app {
+    opacity: 0.7;
+    filter: grayscale(40%) blur(0.5px);
+    transform: scale(0.9);
+}
+
+.utility-app:hover {
+    opacity: 1;
+    filter: none;
+    transform: scale(1);
+}
+
+.utility-app .app-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.utility-app .app-label {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Featured Apps (Widgets) */
+.featured-app {
+    position: relative;
+    border-radius: 20px;
+    padding: 0;
+    /* Remove padding to let image fill */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Align content to bottom */
+    align-items: flex-start;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: #000;
+    /* Fallback */
+}
+
+.featured-app:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    z-index: 5;
+}
+
+/* Background Media */
+.app-bg-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+.featured-app:hover .app-bg-media {
+    transform: scale(1.1);
+}
+
+/* Dark Overlay for Text Readability */
+.app-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+/* App Content Wrapper */
+.app-content {
+    position: relative;
+    z-index: 2;
+    padding: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Widget Specific Layouts */
+.app-video {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.app-presentation {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.app-blog {
+    grid-column: span 4;
+    grid-row: span 2;
+    /* Make blog big too */
+}
+
+/* Inner Widget Styling */
+.featured-app .app-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    /* Slight rounding for embedded icon */
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 8px;
+    /* Space between icon and text */
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-app .app-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.featured-app .app-label {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-top: 0;
+    width: 100%;
+    text-align: left;
+}
+
+/* Home Indicator */
+.home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    z-index: 100;
+    cursor: pointer;
+    transition: background 0.3s, width 0.3s;
+}
+
+.home-indicator:hover {
+    background: rgba(255, 255, 255, 0.9);
+    width: 140px;
+}

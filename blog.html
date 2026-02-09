@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Friends - Blog Huellas de Amor</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Blog Specific Styles - embedded for now or move to site.css later */
+        .blog-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('blog_moment_1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            /* Wider cards for full stories */
+            gap: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: -50px auto 50px;
+            /* Overlap hero */
+            position: relative;
+            z-index: 10;
+        }
+
+        .blog-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-content {
+            padding: 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .blog-story {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .blog-story p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-story p:last-child {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.jpg" alt="Forever Friends Logo" class="logo-img">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#welcome">Nosotros</a></li>
+                    <li><a href="index.html#services">Servicios</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                    <li><a href="index.html#presentation" class="btn-presentation">Ver Presentaciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="hero-content">
+            <h1>Huellas de Amor</h1>
+            <p>Historias sobre el vínculo eterno que nos une a ellos.</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="section" style="background-color: transparent;">
+        <div class="blog-grid">
+
+            <!-- Article 1: El Duelo -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="blog_moment_1.jpg" alt="Atardecer y paz">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">Bienestar Emocional</span>
+                    <h3 class="blog-title">El duelo no es un adiós, es un "hasta luego"</h3>
+                    <div class="blog-story">
+                        <p>Cuando nuestros compañeros peludos partieron, dejaron un silencio ensordecedor en casa. Sin
+                            embargo, con el tiempo, ese silencio se transforma en paz. El duelo es el precio que pagamos
+                            por un amor inmenso, y cada lágrima es un testimonio de la alegría que nos regalaron.</p>
+                        <p>No se trata de olvidar, sino de aprender a recordar sin dolor. Imagina que tu amigo sigue
+                            corriendo libre, sin enfermedades ni cansancio, esperándote pacientemente al otro lado del
+                            arcoíris. Su energía no desaparece; se integra en la naturaleza que nos rodea.</p>
+                        <p>"Mientras vivan en tu corazón, nunca se habrán ido realmente."</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2: Lealtad -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="dog_at_feet.png" alt="Lealtad">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">Historias de Vida</span>
+                    <h3 class="blog-title">La lealtad inquebrantable: Lecciones de cuatro patas</h3>
+                    <div class="blog-story">
+                        <p>¿Quién más te recibe con una fiesta cada vez que llegas a casa, sin importar si fuiste a
+                            trabajar o solo a tirar la basura? Esa capacidad de amar sin condiciones, sin juzgar
+                            nuestros errores o nuestro estado de ánimo, es el regalo más grande que nos dan.</p>
+                        <p>Recuerdo a Max, un viejo labrador que, incluso cuando sus patas ya no le respondían bien,
+                            hacía el esfuerzo de levantarse solo para apoyar su cabeza en mi regazo cuando me veía
+                            triste. Ellos saben cuándo los necesitamos, a veces incluso antes que nosotros mismos.</p>
+                        <p>"Su lealtad no conoce límites, y su amor no conoce final."</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3: Niños -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="blog_moment_2.jpg" alt="Cama vacía">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">Consejos para Familias</span>
+                    <h3 class="blog-title">Cómo explicar la pérdida a los niños</h3>
+                    <div class="blog-story">
+                        <p>Explicar la muerte a un niño es uno de los retos más difíciles para un padre. La honestidad,
+                            adaptada a su edad, es clave. Evita eufemismos confusos como "se quedó dormido", pues pueden
+                            generar miedo al sueño. En su lugar, habla del ciclo de la vida con naturalidad.</p>
+                        <p>Involúcralos en un pequeño ritual de despedida. Hacer un dibujo, plantar una flor en el
+                            jardín o escribir una carta de "gracias" a su mascota les ayuda a procesar sus emociones y a
+                            entender que está bien sentirse tristes.</p>
+                        <p>"En la inocencia de un niño, el amor por su mascota es la forma más pura de amistad."</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 4: Señales -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="blog_moment_3.jpg" alt="Abrazo gato">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">Curiosidades</span>
+                    <h3 class="blog-title">7 señales de que tu mascota te ama (y tú lo sabes)</h3>
+                    <div class="blog-story">
+                        <p>El amor no necesita palabras. Un parpadeo lento de tu gato es un beso en su idioma. Que tu
+                            perro te traiga su juguete favorito no es solo juego, es compartir lo más preciado que tiene
+                            contigo. Dormir dándote la espalda es la máxima señal de confianza; saben que tú los
+                            proteges.</p>
+                        <p>Esos pequeños gestos cotidianos construyen un lenguaje secreto entre los dos. Aprender a
+                            leerlo es descubrir que, en cada momento del día, te están diciendo "te quiero".</p>
+                        <p>"El amor verdadero se demuestra con hechos, o con un ronroneo."</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 5: Memorial -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="blog_moment_4.jpg" alt="Jugando en el pasto">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">Homenajes</span>
+                    <h3 class="blog-title">Creando un memorial en casa: Ideas llenas de luz</h3>
+                    <div class="blog-story">
+                        <p>Tener un espacio dedicado a su memoria puede ser muy sanador. No tiene que ser un altar
+                            triste, sino un rincón que celebre su vida. Una foto alegre de un día de parque, su collar
+                            colgado junto a una vela aromática, o una pequeña caja con sus tesoros.</p>
+                        <p>Encender la vela en días especiales o simplemente cuando lo extrañas, se convierte en un
+                            momento de conexión. Es una forma de decir: "sigues aquí, iluminando mi vida de otra
+                            manera".</p>
+                        <p>"Honrar su memoria es celebrar la alegría que trajeron a nuestras vidas."</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 6: Vínculo Eterno -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="blog_moment_5.jpg" alt="Mirada profunda">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">Reflexión</span>
+                    <h3 class="blog-title">El vínculo que trasciende el tiempo</h3>
+                    <div class="blog-story">
+                        <p>La física nos dice que la energía no se crea ni se destruye, solo se transforma. El amor que
+                            compartiste con tu mascota es una forma de energía poderosa. Cuando su cuerpo físico se va,
+                            ese amor no desaparece; se expande.</p>
+                        <p>Lo sientes en la brisa cálida, lo ves en un atardecer que te recuerda a sus paseos, o en la
+                            sonrisa que te provoca encontrar un viejo pelo en tu abrigo. El vínculo no se rompe con la
+                            muerte, solo cambia de forma.</p>
+                        <p>"El amor es el único puente que la muerte no puede destruir."</p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Forever Friends México</h4>
+                <p>Brindando paz y consuelo a las familias cuando más lo necesitan.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Teléfono: (55) 1234-5678</p>
+                <p>Email: contacto@foreverfriends.mx</p>
+                <p>CDMX, México</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a><br>
+                <a href="blog.html">Blog</a><br>
+                <a href="presentation.html">Presentación Corporativa</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Forever Friends México. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

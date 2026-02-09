@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Friends - Video Estrategia</title>
+    <link rel="stylesheet" href="site.css">
+    <style>
+        /* Specific overrides for this page if needed */
+        .video-page-section {
+            padding: 60px 20px;
+            background-color: #f0f2f5;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Reuse the existing video frame style but maybe centering it more explicitly */
+        .video-center-frame {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 5px #2c3e50,
+                0 0 0 8px #C0A062;
+            background: #000;
+        }
+
+        .video-center-frame video {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.jpg" alt="Forever Friends Logo" class="logo-img">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#welcome">Nosotros</a></li>
+                    <li><a href="index.html#services">Servicios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="index.html#presentation" class="active btn-presentation">Ver Presentaciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Video Section -->
+    <section class="video-page-section">
+        <h2>Estrategia Forever Friends</h2>
+        <p style="margin-bottom: 30px; color: #666;">Conoce más sobre nuestra visión y compromiso.</p>
+
+        <div class="video-center-frame">
+            <video controls autoplay poster="slides/slide_1.png">
+                <source src="Forever Friends_ Estrategia.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <a href="index.html#presentation" class="btn">Volver al Inicio</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Forever Friends México</h4>
+                <p>Brindando paz y consuelo a las familias cuando más lo necesitan.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Teléfono: (55) 1234-5678</p>
+                <p>Email: contacto@foreverfriends.mx</p>
+                <p>CDMX, México</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a><br>
+                <a href="index.html#services">Servicios</a><br>
+                <a href="index.html#presentation">Presentación Corporativa</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Forever Friends México. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
