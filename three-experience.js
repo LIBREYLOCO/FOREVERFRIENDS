@@ -11,9 +11,9 @@ class AnimalManager {
 
         // Animal assets from Three.js examples (stable links)
         this.assets = [
-            { url: 'https://threejs.org/examples/models/gltf/Parrot.glb', scale: 0.05, speed: 0.2 },
-            { url: 'https://threejs.org/examples/models/gltf/Flamingo.glb', scale: 0.05, speed: 0.15 },
-            { url: 'https://threejs.org/examples/models/gltf/Stork.glb', scale: 0.05, speed: 0.18 }
+            { url: 'https://threejs.org/examples/models/gltf/Parrot.glb', scale: 0.05, speed: 0.8 },
+            { url: 'https://threejs.org/examples/models/gltf/Flamingo.glb', scale: 0.05, speed: 0.6 },
+            { url: 'https://threejs.org/examples/models/gltf/Stork.glb', scale: 0.05, speed: 0.7 }
         ];
 
         this.init();
@@ -21,11 +21,12 @@ class AnimalManager {
 
     async init() {
         for (let i = 0; i < 3; i++) {
-            await this.spawnAnimal(this.assets[i % this.assets.length]);
+            const asset = this.assets[i % this.assets.length];
+            await this.spawnAnimal(asset, i * 15 - 20); // Stagger initial X position
         }
     }
 
-    async spawnAnimal(asset) {
+    async spawnAnimal(asset, initialX = null) {
         return new Promise((resolve) => {
             this.loader.load(asset.url, (gltf) => {
                 const model = gltf.scene;
@@ -39,8 +40,14 @@ class AnimalManager {
 
                 model.scale.set(asset.scale, asset.scale, asset.scale);
 
-                // Random starting position
-                this.resetAnimal(model);
+                // Position logic
+                if (initialX !== null) {
+                    model.position.x = initialX;
+                    model.position.y = (Math.random() - 0.5) * 15;
+                    model.position.z = (Math.random() - 0.5) * 10;
+                } else {
+                    this.resetAnimal(model);
+                }
 
                 this.scene.add(model);
                 this.animals.push({
@@ -55,12 +62,14 @@ class AnimalManager {
     }
 
     resetAnimal(model) {
-        model.position.x = -25 - Math.random() * 20;
-        model.position.y = (Math.random() - 0.5) * 15;
-        model.position.z = (Math.random() - 0.5) * 10;
+        // Spread them way back to avoid clumping
+        model.position.x = -30 - Math.random() * 30;
+        // Higher vertical and depth variation
+        model.position.y = (Math.random() - 0.5) * 18;
+        model.position.z = (Math.random() - 0.5) * 15;
 
-        // Random drift
-        model.userData.driftY = (Math.random() - 0.5) * 0.02;
+        // Random drift for vertical movement
+        model.userData.driftY = (Math.random() - 0.5) * 0.05;
     }
 
     update() {
@@ -69,9 +78,9 @@ class AnimalManager {
         this.animals.forEach(animal => {
             animal.mixer.update(delta);
 
-            // Move across screen (Left to Right)
-            animal.model.position.x += animal.speed * delta;
-            animal.model.position.y += Math.sin(Date.now() * 0.001) * 0.01; // Gentle bobbing
+            // Move across screen (Left to Right) with a slightly higher base multiplier
+            animal.model.position.x += animal.speed * delta * 15;
+            animal.model.position.y += Math.sin(Date.now() * 0.001) * 0.02 + animal.model.userData.driftY;
 
             // Rotation based on movement
             animal.model.rotation.y = Math.PI / 2;
