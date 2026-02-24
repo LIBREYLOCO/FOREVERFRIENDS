@@ -22,11 +22,15 @@ class AnimalManager {
     async init() {
         for (let i = 0; i < 3; i++) {
             const asset = this.assets[i % this.assets.length];
-            await this.spawnAnimal(asset, i * 15 - 20); // Stagger initial X position
+            // Wait 3 seconds before spawning the next bird (except for the first one)
+            if (i > 0) {
+                await new Promise(resolve => setTimeout(resolve, 3000));
+            }
+            await this.spawnAnimal(asset);
         }
     }
 
-    async spawnAnimal(asset, initialX = null) {
+    async spawnAnimal(asset) {
         return new Promise((resolve) => {
             this.loader.load(asset.url, (gltf) => {
                 const model = gltf.scene;
@@ -40,14 +44,8 @@ class AnimalManager {
 
                 model.scale.set(asset.scale, asset.scale, asset.scale);
 
-                // Position logic
-                if (initialX !== null) {
-                    model.position.x = initialX;
-                    model.position.y = (Math.random() - 0.5) * 15;
-                    model.position.z = (Math.random() - 0.5) * 10;
-                } else {
-                    this.resetAnimal(model);
-                }
+                // Always reset position to start off-screen
+                this.resetAnimal(model);
 
                 this.scene.add(model);
                 this.animals.push({
