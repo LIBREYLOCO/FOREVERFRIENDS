@@ -8,12 +8,12 @@ class AnimalManager {
         this.animals = [];
         this.loader = new GLTFLoader();
         this.clock = new THREE.Clock();
-        
+
         // Animal assets from Three.js examples (stable links)
         this.assets = [
-            { url: 'https://threejs.org/examples/models/gltf/Parrot.glb', scale: 0.05, speed: 2 },
-            { url: 'https://threejs.org/examples/models/gltf/Flamingo.glb', scale: 0.05, speed: 1.5 },
-            { url: 'https://threejs.org/examples/models/gltf/Stork.glb', scale: 0.05, speed: 1.8 }
+            { url: 'https://threejs.org/examples/models/gltf/Parrot.glb', scale: 0.05, speed: 0.2 },
+            { url: 'https://threejs.org/examples/models/gltf/Flamingo.glb', scale: 0.05, speed: 0.15 },
+            { url: 'https://threejs.org/examples/models/gltf/Stork.glb', scale: 0.05, speed: 0.18 }
         ];
 
         this.init();
@@ -30,7 +30,7 @@ class AnimalManager {
             this.loader.load(asset.url, (gltf) => {
                 const model = gltf.scene;
                 const mixer = new THREE.AnimationMixer(model);
-                
+
                 // Play first animation
                 if (gltf.animations.length > 0) {
                     const action = mixer.clipAction(gltf.animations[0]);
@@ -38,10 +38,10 @@ class AnimalManager {
                 }
 
                 model.scale.set(asset.scale, asset.scale, asset.scale);
-                
+
                 // Random starting position
                 this.resetAnimal(model);
-                
+
                 this.scene.add(model);
                 this.animals.push({
                     model,
@@ -58,24 +58,24 @@ class AnimalManager {
         model.position.x = -25 - Math.random() * 20;
         model.position.y = (Math.random() - 0.5) * 15;
         model.position.z = (Math.random() - 0.5) * 10;
-        
+
         // Random drift
         model.userData.driftY = (Math.random() - 0.5) * 0.02;
     }
 
     update() {
         const delta = this.clock.getDelta();
-        
+
         this.animals.forEach(animal => {
             animal.mixer.update(delta);
-            
+
             // Move across screen (Left to Right)
-            animal.model.position.x += animal.speed * delta * 5;
+            animal.model.position.x += animal.speed * delta;
             animal.model.position.y += Math.sin(Date.now() * 0.001) * 0.01; // Gentle bobbing
-            
+
             // Rotation based on movement
             animal.model.rotation.y = Math.PI / 2;
-            
+
             // Reset if out of bounds
             if (animal.model.position.x > 30) {
                 this.resetAnimal(animal.model);
