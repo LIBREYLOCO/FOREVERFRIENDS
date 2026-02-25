@@ -74,10 +74,9 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="quienes-somos.html">Nosotros</a></li>
-                    <li><a href="index.html#servicios">Servicios</a></li>
-                    <li><a href="index.html#blog">Blog</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#proyectos">Recuerdos</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
                     <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
                             style="font-weight: 700;">SISTEMA</a></li>
                 </ul>
@@ -134,77 +133,21 @@
         </div>
     </div>
 
-    <!-- Gallery Section (Memorial Wall) -->
+    <!-- Gallery Section (OneNine Portfolio Style) -->
     <section id="proyectos" class="section">
-        <span class="section-label">Muro de los Recuerdos</span>
-        <h2 class="text-gradient">Historias que Trascienden</h2>
+        <span class="section-label">Galería Exclusiva</span>
+        <h2 class="text-gradient">Momentos Inolvidables</h2>
         <div class="swiper portfolio-swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"
-                    onclick="openTribute('emotional_hug.png', 'Max y Elena', 'Max no era solo un perro, era mi sombra. Durante 12 años me enseñó lo que significa la lealtad incondicional. Hoy su recuerdo vive en cada rincón de nuestra casa.')">
-                    <img src="emotional_hug.png" alt="Abrazo reconfortante">
-                    <div class="tribute-overlay">
-                        <h3>Max y Elena</h3>
-                        <p>Click para leer historia</p>
-                    </div>
-                </div>
-                <div class="swiper-slide"
-                    onclick="openTribute('dog_at_feet.png', 'El Guardián Silencioso', 'Bruno siempre sabía cuando necesitaba un abrazo. Su lugar favorito era sobre mis pies, dándome calor y paz. Te extrañamos, amigo.')">
-                    <img src="dog_at_feet.png" alt="Perro leal a los pies">
-                    <div class="tribute-overlay">
-                        <h3>Bruno</h3>
-                        <p>Click para leer historia</p>
-                    </div>
-                </div>
-                <div class="swiper-slide"
-                    onclick="openTribute('girl_holding_cat.png', 'Muna y Sofía', 'Muna llegó en un momento difícil y se convirtió en mi luz. Su ronroneo era mi terapia diaria. Siempre serás mi pequeña reina.')">
-                    <img src="girl_holding_cat.png" alt="Niña abrazando a su gato">
-                    <div class="tribute-overlay">
-                        <h3>Muna</h3>
-                        <p>Click para leer historia</p>
-                    </div>
-                </div>
-                <div class="swiper-slide"
-                    onclick="openTribute('elderly_dog_sleeping.png', 'Toby: Una Vida Plena', 'Toby llegó al final de su camino rodeado de amor. Nos dejó un vacío enorme pero un corazón lleno de gratitud por su existencia.')">
-                    <img src="elderly_dog_sleeping.png" alt="Perro mayor descansando">
-                    <div class="tribute-overlay">
-                        <h3>Toby</h3>
-                        <p>Click para leer historia</p>
-                    </div>
-                </div>
+                <div class="swiper-slide"><img src="emotional_hug.png" alt="Abrazo reconfortante"></div>
+                <div class="swiper-slide"><img src="dog_at_feet.png" alt="Perro leal a los pies"></div>
+                <div class="swiper-slide"><img src="girl_holding_cat.png" alt="Niña abrazando a su gato"></div>
+                <div class="swiper-slide"><img src="elderly_dog_sleeping.png" alt="Perro mayor descansando"></div>
+                <div class="swiper-slide"><img src="kitten_playing.png" alt="Gatito jugando"></div>
+                <div class="swiper-slide"><img src="rabbit_cuddle.png" alt="Conejo siendo acariciado"></div>
             </div>
-            <div class="swiper-pagination"></div>
-        </div>
-
-        <div style="margin-top: 60px; text-align: center;" data-aos="fade-up">
-            <a href="contacto.html" class="btn-premium"><span>Crea un Tributo para tu Amigo</span></a>
-            <p style="margin-top: 20px; color: var(--text-secondary); font-size: 14px;">Comparte tu historia y honra su
-                memoria en nuestro muro.</p>
         </div>
     </section>
-
-    <!-- Tribute Modal -->
-    <div class="theme-modal" id="tributeModal">
-        <div class="modal-content-full"
-            style="max-width: 1000px; display: flex; flex-direction: row; gap: 40px; align-items: stretch; padding: 0; overflow: hidden;">
-            <div id="tributeImg"
-                style="flex: 1; background-size: cover; background-position: center; min-height: 500px;"></div>
-            <div style="flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center;">
-                <h2 id="tributeTitle" class="text-gradient" style="font-size: 42px; margin-bottom: 20px;"></h2>
-                <p id="tributeStory"
-                    style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 40px; font-style: italic;">
-                </p>
-
-                <div style="display: flex; gap: 20px;">
-                    <button id="sendLove" class="btn-premium" style="border: none; cursor: pointer;"><span>Enviar Amor
-                            ❤️</span></button>
-                    <button id="closeTribute"
-                        style="background: var(--bg-secondary); border: 1px solid var(--glass-border); padding: 15px 30px; border-radius: 100px; color: var(--text-primary); cursor: pointer; font-weight: 600;">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="hearts-container"></div>
 
     <!-- Services (Specialist Cards Style) -->
     <section id="servicios" class="section" style="background-color: var(--bg-secondary);">
@@ -513,43 +456,6 @@
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             darkToggle.checked = true;
-        }
-
-        // Tribute Modal Logic
-        const tributeModal = document.getElementById('tributeModal');
-        const tImg = document.getElementById('tributeImg');
-        const tTitle = document.getElementById('tributeTitle');
-        const tStory = document.getElementById('tributeStory');
-        const closeTributeBtn = document.getElementById('closeTribute');
-        const sendLoveBtn = document.getElementById('sendLove');
-        const heartsContainer = document.getElementById('hearts-container');
-
-        function openTribute(img, title, story) {
-            tImg.style.backgroundImage = `url('${img}')`;
-            tTitle.innerText = title;
-            tStory.innerText = `"${story}"`;
-            tributeModal.classList.add('active');
-        }
-
-        closeTributeBtn.onclick = () => tributeModal.classList.remove('active');
-
-        sendLoveBtn.onclick = (e) => {
-            const rect = sendLoveBtn.getBoundingClientRect();
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => spawnHeart(rect.left + rect.width / 2, rect.top), i * 100);
-            }
-        };
-
-        function spawnHeart(x, y) {
-            const heart = document.createElement('div');
-            heart.className = 'floating-heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = x + 'px';
-            heart.style.top = y + 'px';
-            heart.style.setProperty('--tx', (Math.random() * 200 - 100) + 'px');
-            heart.style.setProperty('--rot', (Math.random() * 360) + 'deg');
-            heartsContainer.appendChild(heart);
-            setTimeout(() => heart.remove(), 2000);
         }
 
         // Reveal Items on Scroll (Complementary to AOS)
