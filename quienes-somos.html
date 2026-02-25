@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes Somos | Forever Friends & Airapí</title>
+    <meta name="description" content="Nuestra historia y la alianza perfecta entre Forever Friends y Airapí.">
+    <link rel="stylesheet" href="site.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="rainbow">
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="mesh-gradient-bg">
+        <div class="mesh-ball"></div>
+        <div class="mesh-ball"></div>
+        <div class="mesh-ball"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo.jpg" alt="FF Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="quienes-somos.html">Nosotros</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
+                            style="font-weight: 700;">SISTEMA</a></li>
+                </ul>
+            </nav>
+            <div class="theme-controls">
+                <div class="color-picker-btn" id="openModal"></div>
+                <div class="mode-toggle">
+                    <label class="switch" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-overlay"
+            style="background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);"></div>
+        <div class="hero-content">
+            <h1 data-aos="fade-up">Nuestra <span class="text-gradient">Alianza</span></h1>
+            <p data-aos="fade-up" data-aos-delay="100">La unión perfecta entre la calidez humana y la excelencia
+                funeraria.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 80px; align-items: center;">
+            <div data-aos="fade-right">
+                <span class="section-label">Desde Memorial Park</span>
+                <h2 class="text-gradient" style="font-size: 48px;">¿Quiénes Somos?</h2>
+                <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 30px;">
+                    Forever Friends nace de la visión de honrar la vida de nuestras mascotas con la misma dignidad que
+                    cualquier miembro de la familia.
+                    Somos la extensión especializada de <strong>Airapí</strong>, una funeraria con amplia trayectoria y
+                    prestigio en Querétaro.
+                </p>
+                <p style="font-size: 18px; color: var(--text-secondary);">
+                    Nuestra alianza representa la fusión ideal: la sensibilidad absoluta hacia el duelo animal de
+                    Forever Friends y el respaldo tecnológico y profesional de Airapí. Juntos, operamos desde el
+                    <strong>Memorial Park</strong>, ofreciendo un entorno de paz sin igual.
+                </p>
+            </div>
+            <div data-aos="fade-left"
+                style="background: var(--bg-secondary); padding: 40px; border-radius: 40px; border: 1px solid var(--glass-border);">
+                <h3 style="margin-bottom: 20px;">Infraestructura Airapí</h3>
+                <ul style="list-style: none; color: var(--text-secondary); line-height: 2;">
+                    <li>• Horno Crematorio de última generación.</li>
+                    <li>• Amplias e iluminadas instalaciones.</li>
+                    <li>• Suites de descanso privado.</li>
+                    <li>• Ludoteca para los más pequeños.</li>
+                    <li>• Cafetería y Oratorio ecuménico.</li>
+                    <li>• Accesibilidad total para todos los visitantes.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <center>
+            <span class="section-label">Nuestro Propósito</span>
+            <h2 class="text-gradient" style="max-width: 800px;">Haciendo más fácil el momento más difícil</h2>
+            <p style="max-width: 700px; color: var(--text-secondary); font-size: 20px;">
+                En Airapí resolvemos todas tus necesidades en una sola llamada. Cobertura total las 24 horas del día.
+            </p>
+        </center>
+    </section>
+
+    <!-- Theme Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-options">
+            <h2 class="text-gradient">Selecciona tu Estilo</h2>
+            <div class="color-circles">
+                <div class="circle c-rainbow active" data-theme-class="rainbow"></div>
+                <div class="circle c-blue" data-theme-class="blue"></div>
+                <div class="circle c-purple" data-theme-class="purple"></div>
+                <div class="circle c-orange" data-theme-class="orange"></div>
+                <div class="circle c-green" data-theme-class="green"></div>
+            </div>
+            <button id="closeModal"
+                style="margin-top: 40px; background: none; border: 1px solid #ccc; padding: 10px 20px; border-radius: 20px; color: var(--text-primary); cursor: pointer;">Cerrar</button>
+        </div>
+    </div>
+
+    <footer style="padding: 100px 60px; background: var(--bg-primary); border-top: 1px solid var(--glass-border);">
+        <div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 100px;">
+            <div><img src="logo.jpg" style="height: 48px; margin-bottom: 30px;"></div>
+            <div>
+                <h4 style="margin-bottom: 30px;">Dirección</h4>
+                <p style="color: var(--text-secondary);">Camino a Acequia Blanca No. 424 Juriquilla, Querétaro.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 30px;">WhatsApp</h4>
+                <p style="color: var(--text-secondary);">(442) 456 5175</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+
+        // Theme Logic
+        const modal = document.getElementById('themeModal');
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeModal');
+        openBtn.onclick = () => modal.classList.add('active');
+        closeBtn.onclick = () => modal.classList.remove('active');
+
+        document.querySelectorAll('.circle').forEach(circle => {
+            circle.onclick = () => {
+                document.body.className = circle.dataset.themeClass;
+                localStorage.setItem('themeClass', circle.dataset.themeClass);
+            };
+        });
+
+        // Dark Mode
+        const darkToggle = document.getElementById('darkModeToggle');
+        darkToggle.onchange = (e) => {
+            const theme = e.target.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        };
+
+        // Scroll
+        window.onscroll = () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Init
+        if (localStorage.getItem('themeClass')) document.body.className = localStorage.getItem('themeClass');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkToggle.checked = true;
+        }
+    </script>
+</body>
+
+</html>
