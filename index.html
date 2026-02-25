@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever Friends México | Réplica Premium OneNine</title>
+    <title>Forever Friends México | Servicios Premium para Mascotas</title>
+    <meta name="description"
+        content="Forever Friends México ofrece servicios premium de cremación y acompañamiento para mascotas. Honramos la vida de tus mejores amigos con dignidad y amor.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Forever Friends México | Servicios Premium">
+    <meta property="og:description" content="Honrando la vida de quienes nos amaron incondicionalmente.">
+    <meta property="og:image" content="hero_logo_official.png">
     <!-- Fonts & Libraries -->
     <link rel="stylesheet" href="site.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -12,6 +18,16 @@
 </head>
 
 <body class="rainbow">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <!-- Mesh Background -->
+    <div class="mesh-gradient-bg">
+        <div class="mesh-ball"></div>
+        <div class="mesh-ball"></div>
+        <div class="mesh-ball"></div>
+    </div>
 
     <!-- Theme Modal -->
     <div class="theme-modal" id="themeModal">
@@ -27,6 +43,19 @@
             </div>
             <button id="closeModal"
                 style="margin-top: 40px; background: none; border: 1px solid #ccc; padding: 10px 20px; border-radius: 20px; color: var(--text-primary); cursor: pointer;">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div class="theme-modal" id="serviceModal">
+        <div class="modal-content-full">
+            <h2 id="serviceTitle" class="text-gradient" style="font-size: 48px; margin-bottom: 20px;"></h2>
+            <p id="serviceDesc"
+                style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 40px;"></p>
+            <div id="serviceDetail" style="margin-bottom: 40px;"></div>
+            <a href="https://wa.me/521123456789" class="btn-premium"><span>Contactar ahora</span></a>
+            <button id="closeServiceModal"
+                style="position: absolute; top: 40px; right: 40px; background: none; border: none; font-size: 24px; color: var(--text-primary); cursor: pointer;">&times;</button>
         </div>
     </div>
 
@@ -60,11 +89,12 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-carousel">
-            <div class="hero-slide active" style="background-image: url('emotional_hug.png');"></div>
-            <div class="hero-slide" style="background-image: url('dog_at_feet.png');"></div>
-            <div class="hero-slide" style="background-image: url('girl_holding_cat.png');"></div>
-            <div class="hero-slide" style="background-image: url('elderly_dog_sleeping.png');"></div>
+        <div class="hero-video-container"
+            style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
+            <video autoplay muted loop playsinline
+                style="width:100%; height:100%; object-fit: cover; filter: brightness(0.5);">
+                <source src="Forever Friends_ Estrategia.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -119,20 +149,29 @@
         <span class="section-label">Nuestra Experiencia</span>
         <h2 class="text-gradient">Servicios Especializados</h2>
         <div class="review-grid">
-            <div class="card review-single" data-aos="fade-up">
+            <div class="card review-single" data-aos="fade-up"
+                onclick="openService('Cremación Individual', 'Proceso digno y exclusivo con entrega personalizada de cenizas.', 'Ofrecemos un servicio de alta calidad donde su mascota es tratada con el máximo respeto. Incluye certificado de cremación, urna básica y la seguridad de que las cenizas corresponden 100% a su ser querido.')">
                 <div class="service-icon"><img src="service_cremation.png" alt="Cremación"></div>
                 <h3>Cremación Individual</h3>
                 <p>Proceso digno y exclusivo con entrega personalizada de cenizas.</p>
+                <span class="text-gradient"
+                    style="font-weight: 600; cursor: pointer; display: block; margin-top: 20px;">Saber más &rarr;</span>
             </div>
-            <div class="card review-single" data-aos="fade-up" data-aos-delay="100">
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="100"
+                onclick="openService('Servicios Conmemorativos', 'Ceremonias de despedida diseñadas para honrar su memoria.', 'Diseñamos ceremonias personalizadas que reflejan el vínculo especial que compartieron. Nuestro espacio está preparado para recibir a la familia en un ambiente de paz y recogimiento.')">
                 <div class="service-icon"><img src="service_memorial.png" alt="Conmemoración"></div>
                 <h3>Servicios Conmemorativos</h3>
                 <p>Ceremonias de despedida diseñadas para honrar su memoria.</p>
+                <span class="text-gradient"
+                    style="font-weight: 600; cursor: pointer; display: block; margin-top: 20px;">Saber más &rarr;</span>
             </div>
-            <div class="card review-single" data-aos="fade-up" data-aos-delay="200">
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="200"
+                onclick="openService('Apoyo Tanatológico', 'Acompañamiento profesional en el proceso de duelo familiar.', 'El duelo por una mascota es real y profundo. Contamos con especialistas en tanatología animal que brindan las herramientas necesarias para transitar el dolor y encontrar la sanación.')">
                 <div class="service-icon"><img src="service_memorial_1770354099404.png" alt="Tanatología"></div>
                 <h3>Apoyo Tanatológico</h3>
                 <p>Acompañamiento profesional en el proceso de duelo familiar.</p>
+                <span class="text-gradient"
+                    style="font-weight: 600; cursor: pointer; display: block; margin-top: 20px;">Saber más &rarr;</span>
             </div>
         </div>
     </section>
@@ -141,8 +180,20 @@
     <section id="blog" class="section">
         <span class="section-label">Nuestro Blog</span>
         <h2 class="text-gradient">Huellas de Amor</h2>
+
+        <div class="filter-controls" style="margin-bottom: 40px; display: flex; gap: 15px; flex-wrap: wrap;">
+            <button class="filter-btn active" data-filter="all"
+                style="background: none; border: 1px solid var(--glass-border); padding: 10px 25px; border-radius: 100px; color: var(--text-primary); cursor: pointer; font-weight: 600;">Todos</button>
+            <button class="filter-btn" data-filter="duelo"
+                style="background: none; border: 1px solid var(--glass-border); padding: 10px 25px; border-radius: 100px; color: var(--text-primary); cursor: pointer; font-weight: 600;">Duelo</button>
+            <button class="filter-btn" data-filter="consejos"
+                style="background: none; border: 1px solid var(--glass-border); padding: 10px 25px; border-radius: 100px; color: var(--text-primary); cursor: pointer; font-weight: 600;">Consejos</button>
+            <button class="filter-btn" data-filter="historias"
+                style="background: none; border: 1px solid var(--glass-border); padding: 10px 25px; border-radius: 100px; color: var(--text-primary); cursor: pointer; font-weight: 600;">Historias</button>
+        </div>
+
         <div class="blog-grid-premium">
-            <div class="blog-card-premium" data-aos="fade-up">
+            <div class="blog-card-premium" data-aos="fade-up" data-category="duelo">
                 <div class="blog-card-img"><img src="blog_moment_1.jpg"></div>
                 <div class="blog-card-body">
                     <h3>El duelo no es un adiós</h3>
@@ -151,7 +202,7 @@
                         historia</a>
                 </div>
             </div>
-            <div class="blog-card-premium" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-card-premium" data-aos="fade-up" data-aos-delay="100" data-category="historias">
                 <div class="blog-card-img"><img src="dog_at_feet.png"></div>
                 <div class="blog-card-body">
                     <h3>Lealtad Inquebrantable</h3>
@@ -160,7 +211,7 @@
                         historia</a>
                 </div>
             </div>
-            <div class="blog-card-premium" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-card-premium" data-aos="fade-up" data-aos-delay="200" data-category="consejos">
                 <div class="blog-card-img"><img src="blog_moment_2.jpg"></div>
                 <div class="blog-card-body">
                     <h3>Explicar la pérdida</h3>
@@ -171,6 +222,45 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section" style="background-color: var(--bg-secondary);">
+        <span class="section-label">Conversemos</span>
+        <h2 class="text-gradient" style="text-align: center;">Estamos para apoyarte</h2>
+
+        <div class="contact-form-wrapper" data-aos="fade-up">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="name" required placeholder="Tu nombre...">
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea id="message" rows="5" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                </div>
+                <button type="submit" class="btn-premium btn-submit">
+                    <span>Enviar Mensaje</span>
+                </button>
+            </form>
+            <div id="formSuccess"
+                style="display: none; text-align: center; margin-top: 20px; color: #27AE60; font-weight: 600;">
+                ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/521123456789" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-14.7 8.38 8.38 0 0 1 3.8.9L21 3l-1.5 5.5Z">
+            </path>
+        </svg>
+    </a>
 
     <!-- Footer -->
     <footer style="padding: 100px 60px; background: var(--bg-primary); border-top: 1px solid var(--glass-border);">
@@ -247,6 +337,57 @@
             localStorage.setItem('theme', theme);
         };
 
+        // Service Modals Logic
+        const serviceModal = document.getElementById('serviceModal');
+        const sTitle = document.getElementById('serviceTitle');
+        const sDesc = document.getElementById('serviceDesc');
+        const sDetail = document.getElementById('serviceDetail');
+        const closeServiceBtn = document.getElementById('closeServiceModal');
+
+        function openService(title, desc, detail) {
+            sTitle.innerText = title;
+            sDesc.innerText = desc;
+            sDetail.innerHTML = `<p style="color: var(--text-primary); font-size: 16px;">${detail}</p>`;
+            serviceModal.classList.add('active');
+        }
+
+        closeServiceBtn.onclick = () => serviceModal.classList.remove('active');
+
+        // Blog Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card-premium');
+
+        filterBtns.forEach(btn => {
+            btn.onclick = () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+
+                blogCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                        card.setAttribute('data-aos', 'fade-up');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            };
+        });
+
+        // Contact Form Logic
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.onsubmit = (e) => {
+            e.preventDefault();
+            contactForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+            console.log('Form submitted:', {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            });
+        };
         // Header Scroll
         window.onscroll = () => {
             const header = document.getElementById('mainHeader');
@@ -263,12 +404,37 @@
             slides[current].classList.add('active');
         }, 5000);
 
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .circle, .swiper-slide, .card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
         // Init saved theme
         if (localStorage.getItem('themeClass')) document.body.className = localStorage.getItem('themeClass');
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             darkToggle.checked = true;
         }
+
+        // Reveal Items on Scroll (Complementary to AOS)
+        const reveals = document.querySelectorAll('.reveal-item');
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.9) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
     </script>
 </body>
 
