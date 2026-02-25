@@ -211,16 +211,16 @@ header.scrolled {
 
 .logo-wrapper,
 .logo-link {
-    background: rgba(255, 255, 255, 0.95);
-    /* Fixed light background for the logo */
-    padding: 12px 24px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    /* Better shadow for visibility */
+    background: var(--glass-bg);
+    padding: 10px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
 }
 
 .logo-wrapper img,
@@ -232,14 +232,14 @@ header.scrolled {
 }
 
 /* Light Mode Overrides for Logo - Invert if dark logo but here we assume a specific image */
+/* Dark Mode Refinement for Logo */
 [data-theme="dark"] .logo-wrapper {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .logo-wrapper img {
-    filter: brightness(0) invert(1);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
 
 nav ul {
