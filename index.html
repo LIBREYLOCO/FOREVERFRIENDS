@@ -155,22 +155,38 @@
         <h2 class="text-gradient">Servicios Especializados</h2>
         <div class="review-grid">
             <div class="card review-single" data-aos="fade-up"
-                onclick="openService('Cremación Individual', 'Proceso digno y exclusivo con entrega personalizada de cenizas.', 'Ofrecemos un servicio de alta calidad donde su mascota es tratada con el máximo respeto. Incluye certificado de cremación, urna básica y la seguridad de que las cenizas corresponden 100% a su ser querido.', 'service_cremation.png')">
-                <div class="service-icon"><img src="service_cremation.png" alt="Cremación Individual"></div>
+                onclick="openService('Cremación Individual', 'Proceso digno y exclusivo con entrega personalizada de cenizas.', 'Ofrecemos un servicio de alta calidad donde su mascota es tratada con el máximo respeto. Incluye certificado de cremación, urna básica y la seguridad de que las cenizas corresponden 100% a su ser querido.', 'cremation')">
+                <div class="service-icon" id="icon-cremation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L19 7V17L12 22L5 17V7L12 2Z" />
+                        <path d="M12 22V12M12 12L19 7M12 12L5 7" />
+                    </svg>
+                </div>
                 <h3>Cremación Individual</h3>
                 <p>Proceso digno y exclusivo con entrega personalizada de cenizas.</p>
                 <div class="btn-simple">Saber más &rarr;</div>
             </div>
             <div class="card review-single" data-aos="fade-up" data-aos-delay="100"
-                onclick="openService('Servicios Conmemorativos', 'Ceremonias de despedida diseñadas para honrar su memoria.', 'Diseñamos ceremonias personalizadas que reflejan el vínculo especial que compartieron. Nuestro espacio está preparado para recibir a la familia en un ambiente de paz y recogimiento.', 'service_memorial.png')">
-                <div class="service-icon"><img src="service_memorial.png" alt="Servicios Conmemorativos"></div>
+                onclick="openService('Servicios Conmemorativos', 'Ceremonias de despedida diseñadas para honrar su memoria.', 'Diseñamos ceremonias personalizadas que reflejan el vínculo especial que compartieron. Nuestro espacio está preparado para recibir a la familia en un ambiente de paz y recogimiento.', 'memorial')">
+                <div class="service-icon" id="icon-memorial">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                        <circle cx="12" cy="12" r="4" />
+                    </svg>
+                </div>
                 <h3>Servicios Conmemorativos</h3>
                 <p>Ceremonias de despedida diseñadas para honrar su memoria.</p>
                 <div class="btn-simple">Saber más &rarr;</div>
             </div>
             <div class="card review-single" data-aos="fade-up" data-aos-delay="200"
-                onclick="openService('Apoyo Tanatológico', 'Acompañamiento profesional en el proceso de duelo familiar.', 'El duelo por una mascota es real y profundo. Contamos con especialistas en tanatología animal que brindan las herramientas necesarias para transitar el dolor y encontrar la sanación.', 'service_memorial_1770354099404.png')">
-                <div class="service-icon"><img src="service_memorial_1770354099404.png" alt="Apoyo Tanatológico"></div>
+                onclick="openService('Apoyo Tanatológico', 'Acompañamiento profesional en el proceso de duelo familiar.', 'El duelo por una mascota es real y profundo. Contamos con especialistas en tanatología animal que brindan las herramientas necesarias para transitar el dolo y encontrar la sanación.', 'support')">
+                <div class="service-icon" id="icon-support">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M20.42 4.58a5.4 5.4 0 00-7.65 0l-.77.78-.77-.78a5.4 5.4 0 00-7.65 0 5.4 5.4 0 000 7.65l8.42 8.42 8.42-8.42a5.4 5.4 0 000-7.65z" />
+                    </svg>
+                </div>
                 <h3>Apoyo Tanatológico</h3>
                 <p>Acompañamiento profesional en el proceso de duelo familiar.</p>
                 <div class="btn-simple">Saber más &rarr;</div>
@@ -347,12 +363,18 @@
         const closeServiceBtn = document.getElementById('closeServiceModal');
         const goFormBtn = document.getElementById('goForm');
 
-        function openService(title, desc, detail, icon) {
+        function openService(title, desc, detail, iconType) {
             sTitle.innerText = title;
             sDesc.innerText = desc;
+
+            // Get SVG from current icon container or use a map
+            const originalIcon = document.getElementById(`icon-${iconType}`).innerHTML;
+
             sDetail.innerHTML = `
                 <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 30px; flex-wrap: wrap;">
-                    <img src="${icon}" style="width: 120px; height: 120px; object-fit: contain; border-radius: 20px; background: var(--bg-secondary); padding: 15px;">
+                    <div style="width: 120px; height: 120px; border-radius: 20px; background: var(--bg-secondary); padding: 25px; display: flex; align-items: center; justify-content: center; color: var(--text-primary); border: 1px solid var(--glass-border);">
+                        ${originalIcon}
+                    </div>
                     <p style="color: var(--text-primary); font-size: 16px; flex: 1; min-width: 280px;">${detail}</p>
                 </div>`;
             serviceModal.classList.add('active');
