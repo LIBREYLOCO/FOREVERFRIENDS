@@ -831,3 +831,131 @@ nav a:hover {
         display: none;
     }
 }
+/* SOS Guide Styles */
+.sos-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    z-index: 4000;
+    align-items: center;
+    justify-content: center;
+}
+
+.sos-modal.active {
+    display: flex;
+}
+
+.sos-content {
+    background: var(--bg-primary);
+    width: 90%;
+    max-width: 600px;
+    padding: 60px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    text-align: center;
+}
+
+.sos-step {
+    display: none;
+}
+
+.sos-step.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.sos-btn {
+    background: #E74C3C;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.sos-btn:hover {
+    transform: scale(1.05);
+    background: #C0392B;
+}
+
+/* Calculator Styles */
+.calculator-card {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--bg-primary);
+    padding: 60px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+}
+
+.calc-option {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.calc-option.selected {
+    border-color: var(--accent-primary);
+    background: var(--accent-gradient);
+    color: white;
+}
+
+/* Map Styles */
+.memorial-map {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.map-hotspot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 4px solid var(--accent-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+.map-tooltip {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-primary);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+    width: 240px;
+    display: none;
+    z-index: 10;
+    border: 1px solid var(--glass-border);
+}
+
+.map-hotspot:hover .map-tooltip {
+    display: block;
+    animation: fadeInScale 0.3s ease-out;
+}

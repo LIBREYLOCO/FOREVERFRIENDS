@@ -71,27 +71,38 @@
             <a href="#" class="logo-wrapper">
                 <img src="logo.jpg" alt="FF Logo">
             </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="quienes-somos.html">Nosotros</a></li>
-                    <li><a href="index.html#servicios">Servicios</a></li>
-                    <li><a href="index.html#blog">Blog</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
-                            style="font-weight: 700;">SISTEMA</a></li>
-                </ul>
-            </nav>
-            <div class="theme-controls">
-                <div class="color-picker-btn" id="openModal"></div>
-                <div class="mode-toggle">
-                    <label class="switch" aria-label="Toggle Dark Mode">
-                        <input type="checkbox" id="darkModeToggle">
-                        <span class="slider"></span>
-                    </label>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <a href="#" id="openSOS" class="sos-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="m15.477 12.89 1.515 2.02a2 2 0 0 1-2.92 2.74l-2.02-1.514a8 8 0 0 1-1.84-1.84l-1.515-2.02a2 2 0 0 1 2.74-2.92l2.02 1.515a8 8 0 0 1 1.84 1.84Z" />
+                        <path
+                            d="M8.112 12.412c.11.354.209.707.297 1.058a.5.5 0 0 1-.436.621c-1.252.184-2.459.732-3.414 1.581a4 4 0 0 0 5.116 6.156 12 12 0 0 1 5.37-5.37c.351-.088.704-.187 1.058-.297a.5.5 0 0 1 .62.436c.185 1.252.733 2.459 1.582 3.414a4 4 0 0 0 6.156-5.116 12 12 0 0 1-5.37-5.37.5.5 0 0 1 .436-.62c1.252-.185 2.459-.733 3.414-1.582a4 4 0 0 0-5.116-6.156 12 12 0 0 1-5.37 5.37c-.354.11-.707.209-1.058.297a.5.5 0 0 1-.621-.436c-.184-1.252-.732-2.459-1.581-3.414a4 4 0 0 0-6.156 5.116 12 12 0 0 1 5.37 5.37.5.5 0 0 1-.436.62Z" />
+                    </svg>
+                    <span>Asistencia 24h</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="quienes-somos.html">Nosotros</a></li>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
+                                style="font-weight: 700;">SISTEMA</a></li>
+                    </ul>
+                </nav>
+                <div class="theme-controls">
+                    <div class="color-picker-btn" id="openModal"></div>
+                    <div class="mode-toggle">
+                        <label class="switch" aria-label="Toggle Dark Mode">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <!-- Hero Section -->
@@ -299,33 +310,142 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="section" style="background-color: var(--bg-secondary);">
-        <span class="section-label">Conversemos</span>
-        <h2 class="text-gradient" style="text-align: center;">Estamos para apoyarte</h2>
+    <section id="infraestructura" class="section">
+        <span class="section-label">Plataforma Airapí</span>
+        <h2 class="text-gradient">Tecnología y Calidez</h2>
+        <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 60px;">
+            Conoce nuestras instalaciones de primer nivel, diseñadas para brindar paz y comodidad a las familias.
+        </p>
 
-        <div class="contact-form-wrapper" data-aos="fade-up">
-            <form id="contactForm">
-                <div class="form-group">
-                    <label>Nombre Completo</label>
-                    <input type="text" id="name" required placeholder="Tu nombre...">
+        <div class="memorial-map">
+            <img src="memorial_park_aerial.jpg" alt="Mapa Memorial Park"
+                style="width: 100%; display: block; filter: brightness(0.6);">
+
+            <div class="map-hotspot" style="top: 30%; left: 45%;">
+                <div class="map-tooltip">
+                    <h4 class="text-gradient">Suites Privadas</h4>
+                    <p style="font-size: 12px; margin-top: 5px;">Espacios de descanso y acompañamiento para la familia.
+                    </p>
                 </div>
-                <div class="form-group">
-                    <label>Correo Electrónico</label>
-                    <input type="email" id="email" required placeholder="tu@email.com">
+            </div>
+
+            <div class="map-hotspot" style="top: 50%; left: 30%;">
+                <div class="map-tooltip">
+                    <h4 class="text-gradient">Oratorio Ecuménico</h4>
+                    <p style="font-size: 12px; margin-top: 5px;">Un lugar de paz para honrar su memoria.</p>
                 </div>
-                <div class="form-group">
-                    <label>Mensaje</label>
-                    <textarea id="message" rows="5" required placeholder="¿En qué podemos ayudarte?"></textarea>
+            </div>
+
+            <div class="map-hotspot" style="top: 60%; left: 65%;">
+                <div class="map-tooltip">
+                    <h4 class="text-gradient">Ludoteca</h4>
+                    <p style="font-size: 12px; margin-top: 5px;">Área segura para los más pequeños del hogar.</p>
                 </div>
-                <button type="submit" class="btn-premium btn-submit">
-                    <span>Enviar Mensaje</span>
-                </button>
-            </form>
-            <div id="formSuccess"
-                style="display: none; text-align: center; margin-top: 20px; color: #27AE60; font-weight: 600;">
-                ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
             </div>
         </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculador" class="section" style="background: var(--bg-secondary);">
+        <span class="section-label">Prevenir es Amar</span>
+        <h2 class="text-gradient">Calcula tu Plan a Futuro</h2>
+        <div class="calculator-card" data-aos="fade-up">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h4 style="margin-bottom: 20px;">Peso de tu mascota</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                        <div class="calc-option selected" data-type="weight" data-value="10">Pequeña (&lt;10kg)</div>
+                        <div class="calc-option" data-type="weight" data-value="25">Mediana (10-25kg)</div>
+                        <div class="calc-option" data-type="weight" data-value="50">Grande (&gt;25kg)</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px;">Tipo de servicio</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="calc-option selected" data-type="service" data-value="individual">Individual</div>
+                        <div class="calc-option" data-type="service" data-value="communal">Comunitaria</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="calc-result"
+                style="text-align: center; padding: 40px; background: var(--bg-primary); border-radius: 20px; border: 1px dashed var(--accent-primary);">
+                <p style="color: var(--text-secondary);">Estimado aproximado:</p>
+                <h3 id="price-display" class="text-gradient" style="font-size: 48px; margin: 10px 0;">$2,400 - $3,500
+                    MXN</h3>
+                <p style="font-size: 14px; color: var(--text-secondary);">El precio final puede variar según la urna
+                    seleccionada.</p>
+                <a href="contacto.html" class="btn-premium" style="margin-top: 30px;"><span>Bloquear este precio
+                        ahora</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOS Modal -->
+    <div class="sos-modal" id="sosModal">
+        <div class="sos-content">
+            <div class="sos-step active" id="step1">
+                <h2 class="text-gradient">Estamos Contigo</h2>
+                <p style="margin: 20px 0 40px;">Entendemos por lo que estás pasando. Permítenos ayudarte de inmediato
+                    con solo un paso.</p>
+                <a href="tel:4424565175" class="sos-btn" style="font-size: 24px; padding: 20px 40px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Llamar ahora (Emergencias)
+                </a>
+                <button onclick="nextSOS(2)"
+                    style="display: block; margin: 30px auto 0; background: none; border: none; color: var(--text-secondary); cursor: pointer; text-decoration: underline;">Conocer
+                    el proceso de recolección</button>
+            </div>
+
+            <div class="sos-step" id="step2">
+                <h2 class="text-gradient">Proceso de Recolección</h2>
+                <div style="text-align: left; margin: 30px 0;">
+                    <p style="margin-bottom: 15px;"><strong>1. Recolección:</strong> Nuestro equipo especializado llega
+                        a tu domicilio o clínica veterinaria en menos de 90 min.</p>
+                    <p style="margin-bottom: 15px;"><strong>2. Traslado:</strong> Tu mascota es transportada con total
+                        dignidad a nuestras instalaciones premium.</p>
+                    <p style="margin-bottom: 15px;"><strong>3. Identificación:</strong> Se asigna un código de seguridad
+                        para garantizar la trazabilidad total del proceso.</p>
+                </div>
+                <button onclick="nextSOS(1)"
+                    style="margin-top: 20px; background: none; border: 1px solid var(--glass-border); padding: 10px 20px; border-radius: 20px; color: var(--text-primary); cursor: pointer;">Regresar
+                    a Llamada</button>
+            </div>
+
+            <button id="closeSOS"
+                style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 24px; color: var(--text-secondary); cursor: pointer;">&times;</button>
+        </div>
+    </div>
+    <span class="section-label">Conversemos</span>
+    <h2 class="text-gradient" style="text-align: center;">Estamos para apoyarte</h2>
+
+    <div class="contact-form-wrapper" data-aos="fade-up">
+        <form id="contactForm">
+            <div class="form-group">
+                <label>Nombre Completo</label>
+                <input type="text" id="name" required placeholder="Tu nombre...">
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" id="email" required placeholder="tu@email.com">
+            </div>
+            <div class="form-group">
+                <label>Mensaje</label>
+                <textarea id="message" rows="5" required placeholder="¿En qué podemos ayudarte?"></textarea>
+            </div>
+            <button type="submit" class="btn-premium btn-submit">
+                <span>Enviar Mensaje</span>
+            </button>
+        </form>
+        <div id="formSuccess"
+            style="display: none; text-align: center; margin-top: 20px; color: #27AE60; font-weight: 600;">
+            ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+        </div>
+    </div>
     </section>
 
     <!-- WhatsApp Button -->
@@ -550,6 +670,47 @@
             heart.style.setProperty('--rot', (Math.random() * 360) + 'deg');
             heartsContainer.appendChild(heart);
             setTimeout(() => heart.remove(), 2000);
+        }
+
+        // SOS Guide Logic
+        const sosModal = document.getElementById('sosModal');
+        const openSOS = document.getElementById('openSOS');
+        const closeSOS = document.getElementById('closeSOS');
+
+        openSOS.onclick = (e) => {
+            e.preventDefault();
+            sosModal.classList.add('active');
+        };
+
+        closeSOS.onclick = () => sosModal.classList.remove('active');
+
+        window.nextSOS = (step) => {
+            document.querySelectorAll('.sos-step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step${step}`).classList.add('active');
+        };
+
+        // Calculator Logic
+        const calcOptions = document.querySelectorAll('.calc-option');
+        const priceDisplay = document.getElementById('price-display');
+
+        calcOptions.forEach(opt => {
+            opt.onclick = () => {
+                const type = opt.dataset.type;
+                document.querySelectorAll(`.calc-option[data-type="${type}"]`).forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
+                updatePrice();
+            };
+        });
+
+        function updatePrice() {
+            const weight = document.querySelector('.calc-option[data-type="weight"].selected').dataset.value;
+            const service = document.querySelector('.calc-option[data-type="service"].selected').dataset.value;
+
+            let base = weight * 100;
+            if (service === 'individual') base += 1500;
+            else base += 800;
+
+            priceDisplay.innerText = `$${base} - $${base + 1200} MXN`;
         }
 
         // Reveal Items on Scroll (Complementary to AOS)
