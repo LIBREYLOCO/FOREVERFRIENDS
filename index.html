@@ -4,43 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever Friends México | Servicios Premium para Mascotas</title>
+    <title>Forever Friends México | Réplica Premium OneNine</title>
+    <!-- Fonts & Libraries -->
     <link rel="stylesheet" href="site.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
-<body>
+<body class="rainbow">
 
-    <!-- Header (OneNine Style) -->
-    <header>
+    <!-- Theme Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-options">
+            <h2 class="text-gradient">Selecciona tu Estilo</h2>
+            <p>Personaliza tu experiencia visual</p>
+            <div class="color-circles">
+                <div class="circle c-rainbow active" data-theme-class="rainbow"></div>
+                <div class="circle c-blue" data-theme-class="blue"></div>
+                <div class="circle c-purple" data-theme-class="purple"></div>
+                <div class="circle c-orange" data-theme-class="orange"></div>
+                <div class="circle c-green" data-theme-class="green"></div>
+            </div>
+            <button id="closeModal"
+                style="margin-top: 40px; background: none; border: 1px solid #ccc; padding: 10px 20px; border-radius: 20px; color: var(--text-primary); cursor: pointer;">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
         <div class="nav-container">
-            <a href="#" class="logo-link">
-                <img src="logo.jpg" alt="Forever Friends Logo" class="logo-img">
+            <a href="#" class="logo-wrapper">
+                <img src="logo.jpg" alt="FF Logo">
             </a>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="#welcome">Nosotros</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                    <li><a href="https://ffsaas.netlify.app" target="_blank">Sistema</a></li>
-                    <li>
-                        <a href="presentation.html" class="btn-premium">
-                            <span>Presentación</span>
-                        </a>
-                    </li>
-                    <li class="theme-switch">
-                        <label class="switch">
-                            <input type="checkbox" id="theme-toggle">
-                            <span class="slider"></span>
-                        </label>
-                    </li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#proyectos">Recuerdos</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
+                            style="font-weight: 700;">ACCESO SISTEMA</a></li>
                 </ul>
             </nav>
+            <div class="theme-controls">
+                <div class="color-picker-btn" id="openModal"></div>
+                <div class="mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section (Refined Carousel) -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-carousel">
             <div class="hero-slide active" style="background-image: url('emotional_hug.png');"></div>
@@ -49,199 +66,164 @@
             <div class="hero-slide" style="background-image: url('elderly_dog_sleeping.png');"></div>
         </div>
         <div class="hero-overlay"></div>
-
         <div class="hero-content">
-            <img src="hero_logo_official.png" alt="Forever Friends Logo" class="hero-logo">
-            <h1 data-aos="fade-up">Siempre en nuestros <span class="text-gradient">corazones</span></h1>
-            <p data-aos="fade-up" data-aos-delay="100">"Honrando la vida de quienes nos amaron incondicionalmente."</p>
-            <div class="button-wrapper" data-aos="fade-up" data-aos-delay="200">
-                <a href="#services" class="btn-premium">
-                    <span>Nuestros Servicios</span>
-                </a>
+            <img src="hero_logo_official.png" alt="Logo" class="hero-logo">
+            <h1 data-aos="fade-up">Siempre en <span class="text-gradient">nuestros</span> corazones</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Honrando la vida de quienes nos amaron incondicionalmente.</p>
+            <a href="#servicios" class="btn-premium" data-aos="fade-up" data-aos-delay="200">
+                <span>Nuestros Servicios</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Marquee Banner (Swiper) -->
+    <div class="marquee-section"
+        style="background: var(--bg-secondary); padding: 40px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+        <div class="swiper marquee-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"
+                    style="width: auto !important; padding: 0 40px; font-weight: 700; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">
+                    Compasión</div>
+                <div class="swiper-slide"
+                    style="width: auto !important; padding: 0 40px; font-weight: 700; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">
+                    Respeto</div>
+                <div class="swiper-slide"
+                    style="width: auto !important; padding: 0 40px; font-weight: 700; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">
+                    Dignidad</div>
+                <div class="swiper-slide"
+                    style="width: auto !important; padding: 0 40px; font-weight: 700; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">
+                    Amor Eterno</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section (OneNine Portfolio Style) -->
+    <section id="proyectos" class="section">
+        <span class="section-label">Galería Exclusiva</span>
+        <h2 class="text-gradient">Momentos Inolvidables</h2>
+        <div class="swiper portfolio-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="emotional_hug.png"></div>
+                <div class="swiper-slide"><img src="dog_at_feet.png"></div>
+                <div class="swiper-slide"><img src="girl_holding_cat.png"></div>
+                <div class="swiper-slide"><img src="elderly_dog_sleeping.png"></div>
+                <div class="swiper-slide"><img src="kitten_playing.png"></div>
+                <div class="swiper-slide"><img src="rabbit_cuddle.png"></div>
             </div>
         </div>
     </section>
 
-    <!-- Welcome Section (Intro Style) -->
-    <section id="welcome" class="section">
-        <div class="about-text">
-            <h2 class="text-gradient">Bienvenidos a Forever Friends</h2>
-            <p>En Forever Friends, tratamos a las mascotas como a cualquier otro miembro de la familia. Estamos aquí
-                para brindarle a su querido compañero el respeto y la dignidad que se merece en su despedida final.</p>
-            <p>Entendemos el profundo vínculo que existe entre las personas y sus mascotas. Nuestro compromiso es
-                acompañarlo en este momento difícil con compasión, profesionalismo y un servicio de excelencia.</p>
-        </div>
-    </section>
-
-    <!-- Services Section (Specialist Cards Style) -->
-    <section id="services" class="section" style="background-color: var(--bg-secondary);">
-        <h2 class="text-gradient">Nuestros Servicios</h2>
-        <div class="services-grid">
-            <div class="service-card">
+    <!-- Services (Specialist Cards Style) -->
+    <section id="servicios" class="section" style="background-color: var(--bg-secondary);">
+        <span class="section-label">Nuestra Experiencia</span>
+        <h2 class="text-gradient">Servicios Especializados</h2>
+        <div class="review-grid">
+            <div class="card review-single" data-aos="fade-up">
                 <h3>Cremación Individual</h3>
-                <p>Un servicio respetuoso donde su mascota es cremada individualmente, asegurando que las cenizas que
-                    recibe son exclusivamente las de su compañero.</p>
+                <p>Proceso digno y exclusivo con entrega personalizada de cenizas.</p>
             </div>
-            <div class="service-card">
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="100">
                 <h3>Servicios Conmemorativos</h3>
-                <p>Organizamos ceremonias de despedida personalizadas para celebrar la vida y el amor que su mascota
-                    trajo a su hogar.</p>
+                <p>Ceremonias de despedida diseñadas para honrar su memoria.</p>
             </div>
-            <div class="service-card">
-                <h3>Apoyo en el Duelo</h3>
-                <p>Ofrecemos recursos y apoyo emocional para ayudarle a usted y a su familia a transitar el proceso de
-                    duelo por la pérdida de su amigo fiel.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Emotional Moments (Premium Gallery Style) -->
-    <section class="section">
-        <h2 class="text-gradient">Momentos de Amor</h2>
-        <div class="emotional-grid">
-            <div class="emotional-card">
-                <img src="emotional_hug.png" alt="Abrazo">
-            </div>
-            <div class="emotional-card">
-                <img src="dog_at_feet.png" alt="Lealtad">
-            </div>
-            <div class="emotional-card">
-                <img src="girl_holding_cat.png" alt="Amor">
-            </div>
-            <div class="emotional-card">
-                <img src="elderly_dog_sleeping.png" alt="Descanso">
-            </div>
-            <div class="emotional-card">
-                <img src="kitten_playing.png" alt="Juego">
-            </div>
-            <div class="emotional-card">
-                <img src="rabbit_cuddle.png" alt="Ternura">
-            </div>
-            <!-- More photos section -->
-            <div class="emotional-card" data-aos="fade-up">
-                <img src="emotional_hug.png" alt="Momentos">
-            </div>
-            <div class="emotional-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="slides/slide_1.png" alt="Visión">
-            </div>
-            <div class="emotional-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="dog_at_feet.png" alt="Compañerismo">
-            </div>
-        </div>
-    </section>
-
-    <!-- Extra Emotional Moments (Modern Masonry Style) -->
-    <section class="section" style="padding-top: 0;">
-        <div class="emotional-grid" style="grid-template-columns: repeat(2, 1fr);">
-            <div class="emotional-card" style="aspect-ratio: 16/9;" data-aos="zoom-in">
-                <img src="slides/slide_2.png" alt="Recuerdos">
-            </div>
-            <div class="emotional-card" style="aspect-ratio: 16/9;" data-aos="zoom-in" data-aos-delay="200">
-                <img src="slides/slide_1.png" alt="Paz">
-            </div>
-        </div>
-    </section>
-
-    <!-- Quote Section with Background -->
-    <section class="section"
-        style="text-align: center; padding: 150px 40px; position: relative; overflow: hidden; background: #000; color: #fff;">
-        <div
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('elderly_dog_sleeping.png'); background-size: cover; background-position: center; opacity: 0.3; filter: blur(5px);">
-        </div>
-        <div style="position: relative; z-index: 2;">
-            <p
-                style="font-size: 38px; font-weight: 700; font-style: italic; max-width: 900px; margin: 0 auto; line-height: 1.3;">
-                "Hasta que uno no ha amado a un animal, una parte del alma permanece dormida."</p>
-            <cite style="display: block; margin-top: 30px; font-size: 20px; color: #ccc;">— Anatole France</cite>
-        </div>
-    </section>
-
-    <!-- Presentation (iPhone Style) -->
-    <section id="presentation" class="presentation-section">
-        <h2 class="text-gradient">Estrategia y Visión</h2>
-        <div class="iphone-device">
-            <div class="iphone-screen">
-                <img src="slides/slide_1.png" alt="Slide" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="200">
+                <h3>Apoyo Tanatológico</h3>
+                <p>Acompañamiento profesional en el proceso de duelo familiar.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-col">
-                <img src="logo.jpg" alt="Logo" style="height: 40px; margin-bottom: 20px;">
-                <p>Brindando paz y consuelo a las familias cuando más lo necesitan. Forever Friends México.</p>
+    <footer style="padding: 100px 60px; background: var(--bg-primary); border-top: 1px solid var(--glass-border);">
+        <div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 100px;">
+            <div>
+                <img src="logo.jpg" style="height: 48px; margin-bottom: 30px;">
+                <p style="color: var(--text-secondary); max-width: 400px;">Brindando paz y consuelo a las familias
+                    cuando más lo necesitan. Forever Friends México.</p>
             </div>
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <p>Teléfono: (55) 1234-5678</p>
-                <p>Email: contacto@foreverfriends.mx</p>
-                <p>CDMX, México</p>
+            <div>
+                <h4 style="margin-bottom: 30px;">Contacto</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 10px;">CDMX, México</p>
+                <p style="color: var(--text-secondary);">contacto@foreverfriends.mx</p>
             </div>
-            <div class="footer-col">
-                <h4>Enlaces</h4>
-                <a href="#">Inicio</a>
-                <a href="#services">Servicios</a>
-                <a href="presentation.html">Presentación</a>
+            <div>
+                <h4 style="margin-bottom: 30px;">Social</h4>
+                <a href="#"
+                    style="color: var(--text-secondary); display: block; margin-bottom: 10px; text-decoration: none;">Instagram</a>
+                <a href="#" style="color: var(--text-secondary); display: block; text-decoration: none;">Facebook</a>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Forever Friends México. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
+        AOS.init({ duration: 1200, once: true });
+
+        // Swiper Initializations
+        new Swiper('.portfolio-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            freeMode: true,
+            grabCursor: true
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        new Swiper('.marquee-swiper', {
+            slidesPerView: 'auto',
+            loop: true,
+            autoplay: { delay: 0, disableOnInteraction: false },
+            speed: 5000,
+            allowTouchMove: false
         });
 
-        // Hero Carousel Logic
+        // Theme Modal Logic
+        const modal = document.getElementById('themeModal');
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeModal');
+
+        openBtn.onclick = () => modal.classList.add('active');
+        closeBtn.onclick = () => modal.classList.remove('active');
+
+        document.querySelectorAll('.circle').forEach(circle => {
+            circle.onclick = () => {
+                document.body.className = circle.dataset.themeClass;
+                document.querySelectorAll('.circle').forEach(c => c.classList.remove('active'));
+                circle.classList.add('active');
+                localStorage.setItem('themeClass', circle.dataset.themeClass);
+            };
+        });
+
+        // Dark Mode Logic
+        const darkToggle = document.getElementById('darkModeToggle');
+        darkToggle.onchange = (e) => {
+            const theme = e.target.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        };
+
+        // Header Scroll
+        window.onscroll = () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+
+        // Hero Carousel
         const slides = document.querySelectorAll('.hero-slide');
-        let currentSlide = 0;
+        let current = 0;
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 5000);
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
+        // Init saved theme
+        if (localStorage.getItem('themeClass')) document.body.className = localStorage.getItem('themeClass');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkToggle.checked = true;
         }
-
-        setInterval(nextSlide, 5000);
-
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
-
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                themeToggle.checked = true;
-            }
-        }
-
-        themeToggle.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
-        });
     </script>
 </body>
 
