@@ -12,7 +12,7 @@
 <body>
 
     <!-- Header (Same as index.html) -->
-    <header>
+    <header id="mainHeader">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
                 <img src="logo.jpg" alt="Forever Friends Logo" class="logo-img">
@@ -22,10 +22,14 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="index.html#welcome">Nosotros</a></li>
                     <li><a href="index.html#services">Servicios</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                    <li><a href="index.html#presentation" class="active btn-presentation">Ver Presentaciones</a></li>
+                    <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
+                            style="font-weight: 700;">SISTEMA</a></li>
+                    <li><a href="presentation.html" class="active btn-premium"><span>Presentación</span></a></li>
                 </ul>
             </nav>
+            <div class="theme-controls">
+                <!-- Theme toggle/picker could be added here too for consistency -->
+            </div>
         </div>
     </header>
 
@@ -37,25 +41,32 @@
             amor y respeto.
         </p>
 
-        <!-- Cinema Frame -->
-        <div class="slideshow-frame">
-            <div class="presentation-container">
+        <!-- Premium Cinema Frame -->
+        <div class="slideshow-frame"
+            style="padding: 40px; background: var(--bg-secondary); border-radius: 40px; border: 1px solid var(--glass-border); box-shadow: 0 40px 100px rgba(0,0,0,0.1); margin-top: 40px;">
+            <div class="presentation-container"
+                style="max-height: 80vh; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
                 <div class="slides-wrapper" id="slidesWrapper">
                     <!-- Slides injected by JS -->
                 </div>
 
-                <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-                <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <div class="nav-btns-wrapper"
+                    style="position: absolute; width: 100%; top: 50%; display: flex; justify-content: space-between; padding: 0 20px; transform: translateY(-50%); pointer-events: none; z-index: 10;">
+                    <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior"
+                        style="pointer-events: auto; background: var(--glass-bg); backdrop-filter: blur(10px); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente"
+                        style="pointer-events: auto; background: var(--glass-bg); backdrop-filter: blur(10px); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </section>

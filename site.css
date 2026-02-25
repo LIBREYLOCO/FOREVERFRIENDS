@@ -95,14 +95,21 @@ header.scrolled {
     align-items: center;
 }
 
-.logo-wrapper img {
-    height: 48px;
+.logo-wrapper img,
+.logo-link img,
+.logo-img {
+    height: 80px;
+    /* Increased from 50px/48px */
     width: auto;
+    border-radius: 12px;
     transition: var(--transition);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
-[data-theme="dark"] .logo-wrapper img {
-    filter: brightness(0) invert(1);
+[data-theme="dark"] .logo-wrapper img,
+[data-theme="dark"] .logo-link img,
+[data-theme="dark"] .logo-img {
+    filter: brightness(0) invert(1) drop-shadow(0 4px 6px rgba(255, 255, 255, 0.1));
 }
 
 nav ul {
