@@ -53,7 +53,13 @@
             <p id="serviceDesc"
                 style="font-size: 18px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 40px;"></p>
             <div id="serviceDetail" style="margin-bottom: 40px;"></div>
-            <a href="https://wa.me/521123456789" class="btn-premium"><span>Contactar ahora</span></a>
+
+            <div class="modal-ctas" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <a href="#contacto" class="btn-premium" id="goForm"><span>Llenar Formulario</span></a>
+                <a href="https://wa.me/521123456789" class="btn-premium"
+                    style="background: #25D366; border-color: #25D366;"><span>WhatsApp</span></a>
+            </div>
+
             <button id="closeServiceModal"
                 style="position: absolute; top: 40px; right: 40px; background: none; border: none; font-size: 24px; color: var(--text-primary); cursor: pointer;">&times;</button>
         </div>
@@ -149,28 +155,25 @@
         <h2 class="text-gradient">Servicios Especializados</h2>
         <div class="review-grid">
             <div class="card review-single" data-aos="fade-up"
-                onclick="openService('Cremación Individual', 'Proceso digno y exclusivo con entrega personalizada de cenizas.', 'Ofrecemos un servicio de alta calidad donde su mascota es tratada con el máximo respeto. Incluye certificado de cremación, urna básica y la seguridad de que las cenizas corresponden 100% a su ser querido.')">
-                <div class="service-icon"><img src="service_cremation.png" alt="Cremación"></div>
+                onclick="openService('Cremación Individual', 'Proceso digno y exclusivo con entrega personalizada de cenizas.', 'Ofrecemos un servicio de alta calidad donde su mascota es tratada con el máximo respeto. Incluye certificado de cremación, urna básica y la seguridad de que las cenizas corresponden 100% a su ser querido.', 'service_cremation.png')">
+                <div class="service-icon"><img src="service_cremation.png" alt="Cremación Individual"></div>
                 <h3>Cremación Individual</h3>
                 <p>Proceso digno y exclusivo con entrega personalizada de cenizas.</p>
-                <span class="text-gradient"
-                    style="font-weight: 600; cursor: pointer; display: block; margin-top: 20px;">Saber más &rarr;</span>
+                <div class="btn-simple">Saber más &rarr;</div>
             </div>
             <div class="card review-single" data-aos="fade-up" data-aos-delay="100"
-                onclick="openService('Servicios Conmemorativos', 'Ceremonias de despedida diseñadas para honrar su memoria.', 'Diseñamos ceremonias personalizadas que reflejan el vínculo especial que compartieron. Nuestro espacio está preparado para recibir a la familia en un ambiente de paz y recogimiento.')">
-                <div class="service-icon"><img src="service_memorial.png" alt="Conmemoración"></div>
+                onclick="openService('Servicios Conmemorativos', 'Ceremonias de despedida diseñadas para honrar su memoria.', 'Diseñamos ceremonias personalizadas que reflejan el vínculo especial que compartieron. Nuestro espacio está preparado para recibir a la familia en un ambiente de paz y recogimiento.', 'service_memorial.png')">
+                <div class="service-icon"><img src="service_memorial.png" alt="Servicios Conmemorativos"></div>
                 <h3>Servicios Conmemorativos</h3>
                 <p>Ceremonias de despedida diseñadas para honrar su memoria.</p>
-                <span class="text-gradient"
-                    style="font-weight: 600; cursor: pointer; display: block; margin-top: 20px;">Saber más &rarr;</span>
+                <div class="btn-simple">Saber más &rarr;</div>
             </div>
             <div class="card review-single" data-aos="fade-up" data-aos-delay="200"
-                onclick="openService('Apoyo Tanatológico', 'Acompañamiento profesional en el proceso de duelo familiar.', 'El duelo por una mascota es real y profundo. Contamos con especialistas en tanatología animal que brindan las herramientas necesarias para transitar el dolor y encontrar la sanación.')">
-                <div class="service-icon"><img src="service_memorial_1770354099404.png" alt="Tanatología"></div>
+                onclick="openService('Apoyo Tanatológico', 'Acompañamiento profesional en el proceso de duelo familiar.', 'El duelo por una mascota es real y profundo. Contamos con especialistas en tanatología animal que brindan las herramientas necesarias para transitar el dolor y encontrar la sanación.', 'service_memorial_1770354099404.png')">
+                <div class="service-icon"><img src="service_memorial_1770354099404.png" alt="Apoyo Tanatológico"></div>
                 <h3>Apoyo Tanatológico</h3>
                 <p>Acompañamiento profesional en el proceso de duelo familiar.</p>
-                <span class="text-gradient"
-                    style="font-weight: 600; cursor: pointer; display: block; margin-top: 20px;">Saber más &rarr;</span>
+                <div class="btn-simple">Saber más &rarr;</div>
             </div>
         </div>
     </section>
@@ -342,13 +345,24 @@
         const sDesc = document.getElementById('serviceDesc');
         const sDetail = document.getElementById('serviceDetail');
         const closeServiceBtn = document.getElementById('closeServiceModal');
+        const goFormBtn = document.getElementById('goForm');
 
-        function openService(title, desc, detail) {
+        function openService(title, desc, detail, icon) {
             sTitle.innerText = title;
             sDesc.innerText = desc;
-            sDetail.innerHTML = `<p style="color: var(--text-primary); font-size: 16px;">${detail}</p>`;
+            sDetail.innerHTML = `
+                <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 30px; flex-wrap: wrap;">
+                    <img src="${icon}" style="width: 120px; height: 120px; object-fit: contain; border-radius: 20px; background: var(--bg-secondary); padding: 15px;">
+                    <p style="color: var(--text-primary); font-size: 16px; flex: 1; min-width: 280px;">${detail}</p>
+                </div>`;
             serviceModal.classList.add('active');
         }
+
+        goFormBtn.onclick = (e) => {
+            e.preventDefault();
+            serviceModal.classList.remove('active');
+            document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' });
+        };
 
         closeServiceBtn.onclick = () => serviceModal.classList.remove('active');
 

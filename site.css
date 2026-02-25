@@ -528,6 +528,20 @@ nav a:hover {
     box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
 }
 
+.btn-simple {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-top: 20px;
+    display: inline-block;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-simple:hover {
+    color: var(--accent-primary);
+    transform: translateX(5px);
+}
+
 /* Contact Form */
 .contact-form-wrapper {
     max-width: 800px;
