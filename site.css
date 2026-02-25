@@ -13,6 +13,15 @@
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+[data-theme="dark"] {
+    --bg-primary: #161616;
+    --bg-secondary: #272727;
+    --text-primary: #ffffff;
+    --text-secondary: #B1B1B1;
+    --glass-bg: rgba(22, 22, 22, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
 header.scrolled {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
@@ -27,6 +36,7 @@ body {
     background-color: var(--bg-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Header */
@@ -49,9 +59,15 @@ header {
     align-items: center;
 }
 
-.logo-img {
+.logo-link img {
     height: 50px;
     width: auto;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .logo-link img {
+    filter: brightness(0) invert(1);
 }
 
 nav ul {
@@ -74,6 +90,61 @@ nav a {
 nav a.active,
 nav a:hover {
     opacity: 0.6;
+}
+
+/* Theme Toggle */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #eee;
+    transition: .4s;
+    border-radius: 34px;
+    border: 1px solid #ddd;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked+.slider {
+    background-color: var(--onenine-black, #161616);
+}
+
+input:checked+.slider:before {
+    transform: translateX(30px);
 }
 
 /* Premium Button (rott_btns style) */
@@ -104,7 +175,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* Hero Section */
+/* Hero Section Refined */
 .hero {
     height: 100vh;
     display: flex;
@@ -112,11 +183,11 @@ nav a:hover {
     justify-content: center;
     position: relative;
     padding: 0 40px;
-    background: #fff;
+    background: #000;
     overflow: hidden;
 }
 
-.hero-bg-gradient {
+.hero-carousel {
     position: absolute;
     top: 0;
     left: 0;
@@ -125,25 +196,34 @@ nav a:hover {
     z-index: 1;
 }
 
-.gradient-circle {
+.hero-slide {
     position: absolute;
-    width: 800px;
-    height: 800px;
-    border-radius: 50%;
-    filter: blur(150px);
-    opacity: 0.15;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, transform 8s linear, filter 2s ease-in-out;
+    transform: scale(1);
+    filter: blur(10px) brightness(0.7);
 }
 
-.circle-1 {
-    top: -200px;
-    left: -200px;
-    background: #665BEA;
+.hero-slide.active {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: blur(0px) brightness(0.6);
 }
 
-.circle-2 {
-    bottom: -200px;
-    right: -200px;
-    background: #E7854E;
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 2;
 }
 
 .hero-content {
@@ -151,6 +231,7 @@ nav a:hover {
     z-index: 10;
     text-align: center;
     max-width: 900px;
+    color: #fff;
 }
 
 .hero-logo {
