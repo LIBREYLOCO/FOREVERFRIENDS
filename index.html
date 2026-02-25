@@ -38,8 +38,9 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#proyectos">Recuerdos</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
                             style="font-weight: 700;">SISTEMA</a></li>
@@ -119,16 +120,54 @@
         <h2 class="text-gradient">Servicios Especializados</h2>
         <div class="review-grid">
             <div class="card review-single" data-aos="fade-up">
+                <div class="service-icon"><img src="service_cremation.png" alt="Cremación"></div>
                 <h3>Cremación Individual</h3>
                 <p>Proceso digno y exclusivo con entrega personalizada de cenizas.</p>
             </div>
             <div class="card review-single" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon"><img src="service_memorial.png" alt="Conmemoración"></div>
                 <h3>Servicios Conmemorativos</h3>
                 <p>Ceremonias de despedida diseñadas para honrar su memoria.</p>
             </div>
             <div class="card review-single" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon"><img src="service_memorial_1770354099404.png" alt="Tanatología"></div>
                 <h3>Apoyo Tanatológico</h3>
                 <p>Acompañamiento profesional en el proceso de duelo familiar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section (Huellas de Amor) -->
+    <section id="blog" class="section">
+        <span class="section-label">Nuestro Blog</span>
+        <h2 class="text-gradient">Huellas de Amor</h2>
+        <div class="blog-grid-premium">
+            <div class="blog-card-premium" data-aos="fade-up">
+                <div class="blog-card-img"><img src="blog_moment_1.jpg"></div>
+                <div class="blog-card-body">
+                    <h3>El duelo no es un adiós</h3>
+                    <p>Cuando nuestros compañeros peludos partieron, dejaron un silencio ensordecedor...</p>
+                    <a href="blog.html" class="text-gradient" style="font-weight: 600; text-decoration: none;">Leer
+                        historia</a>
+                </div>
+            </div>
+            <div class="blog-card-premium" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-card-img"><img src="dog_at_feet.png"></div>
+                <div class="blog-card-body">
+                    <h3>Lealtad Inquebrantable</h3>
+                    <p>Esa capacidad de amar sin condiciones es el regalo más grande que nos dan...</p>
+                    <a href="blog.html" class="text-gradient" style="font-weight: 600; text-decoration: none;">Leer
+                        historia</a>
+                </div>
+            </div>
+            <div class="blog-card-premium" data-aos="fade-up" data-aos-delay="200">
+                <div class="blog-card-img"><img src="blog_moment_2.jpg"></div>
+                <div class="blog-card-body">
+                    <h3>Explicar la pérdida</h3>
+                    <p>Adaptado a su edad, la honestidad es clave al hablar del ciclo de la vida...</p>
+                    <a href="blog.html" class="text-gradient" style="font-weight: 600; text-decoration: none;">Leer
+                        historia</a>
+                </div>
             </div>
         </div>
     </section>
@@ -163,8 +202,14 @@
 
         // Swiper Initializations
         new Swiper('.portfolio-swiper', {
-            slidesPerView: 'auto',
-            spaceBetween: 30,
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            breakpoints: {
+                320: { slidesPerView: 1.2 },
+                768: { slidesPerView: 2.5 },
+                1024: { slidesPerView: 3.5 }
+            },
             freeMode: true,
             grabCursor: true
         });
