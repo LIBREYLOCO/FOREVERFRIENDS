@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Veterinaria | Forever Friends & Airapí</title>
+    <meta name="description"
+        content="Nuestra red de clínicas veterinarias asociadas que trabajan con protocolos premium de Forever Friends.">
+    <!-- Fonts & Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="rainbow">
+    <!-- Mesh Background -->
+    <div class="mesh-gradient-bg">
+        <div class="mesh-ball"></div>
+        <div class="mesh-ball"></div>
+        <div class="mesh-ball"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo.jpg" alt="FF Logo">
+            </a>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="quienes-somos.html">Nosotros</a></li>
+                        <li><a href="veterinarias.html">Red Veterinaria</a></li>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="https://ffsaas.netlify.app" target="_blank" class="text-gradient"
+                                style="font-weight: 700;">SISTEMA</a></li>
+                    </ul>
+                </nav>
+                <div class="theme-controls">
+                    <div class="color-picker-btn" id="openModal"></div>
+                    <div class="mode-toggle">
+                        <label class="switch" aria-label="Toggle Dark Mode">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-overlay"
+            style="background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);"></div>
+        <div class="hero-content">
+            <h1 data-aos="fade-up">Red de <span class="text-gradient">Veterinarias</span> Asociadas</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Confianza, respaldo y atención en los mejores centros de la región.</p>
+        </div>
+    </section>
+
+    <!-- Vet List Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <center>
+            <span class="section-label">Centros Especializados</span>
+            <h2 class="text-gradient" style="max-width: 800px; margin-bottom: 60px;">Veterinarias con Sello de Calidad</h2>
+        </center>
+
+        <div class="review-grid">
+            <!-- Vet 1 -->
+            <div class="card review-single" data-aos="fade-up">
+                <h3 class="text-gradient">Clínica Veterinaria San Francisco</h3>
+                <p><strong>Contacto:</strong> Dra. Irene Campos</p>
+                <p><strong>Dirección:</strong> Av. San Francisco 120, CDMX</p>
+                <p><strong>Teléfono:</strong> 555 111 0001</p>
+            </div>
+            <!-- Vet 2 -->
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-gradient">Hospital Pet Care Plus</h3>
+                <p><strong>Contacto:</strong> Dr. Ramón Estrada</p>
+                <p><strong>Dirección:</strong> Blvd. Hidalgo 88, Guadalajara</p>
+                <p><strong>Teléfono:</strong> 555 111 0002</p>
+            </div>
+            <!-- Vet 3 -->
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-gradient">Veterinaria Animal Friends</h3>
+                <p><strong>Contacto:</strong> Dra. Cecilia Luna</p>
+                <p><strong>Dirección:</strong> Calle Cedros 44, Monterrey</p>
+                <p><strong>Teléfono:</strong> 555 111 0003</p>
+            </div>
+            <!-- Vet 4 -->
+            <div class="card review-single" data-aos="fade-up">
+                <h3 class="text-gradient">Centro Médico Pawsitive</h3>
+                <p><strong>Contacto:</strong> Dr. Javier Ríos</p>
+                <p><strong>Dirección:</strong> Paseo Reforma 500, CDMX</p>
+                <p><strong>Teléfono:</strong> 555 111 0004</p>
+            </div>
+            <!-- Vet 5 -->
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-gradient">Veterinaria Mi Mascota</h3>
+                <p><strong>Contacto:</strong> Dra. Laura Vega</p>
+                <p><strong>Dirección:</strong> Av. Juárez 33, Puebla</p>
+                <p><strong>Teléfono:</strong> 555 111 0005</p>
+            </div>
+            <!-- Vet 6 -->
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-gradient">Clínica Canina del Norte</h3>
+                <p><strong>Contacto:</strong> Dr. Arturo Mora</p>
+                <p><strong>Dirección:</strong> Blvd. Torres 201, Monterrey</p>
+                <p><strong>Teléfono:</strong> 555 111 0006</p>
+            </div>
+            <!-- Vet 7 -->
+            <div class="card review-single" data-aos="fade-up">
+                <h3 class="text-gradient">Hospital Veterinario Peludos</h3>
+                <p><strong>Contacto:</strong> Dra. Patricia Solis</p>
+                <p><strong>Dirección:</strong> Calle Roble 77, Querétaro</p>
+                <p><strong>Teléfono:</strong> 555 111 0007</p>
+            </div>
+            <!-- Vet 8 -->
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-gradient">VetStar Clínica Premium</h3>
+                <p><strong>Contacto:</strong> Dr. Fernando Nuñez</p>
+                <p><strong>Dirección:</strong> Av. del Bosque 15, CDMX</p>
+                <p><strong>Teléfono:</strong> 555 111 0008</p>
+            </div>
+            <!-- Vet 9 -->
+            <div class="card review-single" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-gradient">Clínica Zoe & Friends</h3>
+                <p><strong>Contacto:</strong> Dra. Mónica Parra</p>
+                <p><strong>Dirección:</strong> Plaza Central 8, León</p>
+                <p><strong>Teléfono:</strong> 555 111 0009</p>
+            </div>
+            <!-- Vet 10 -->
+            <div class="card review-single" data-aos="fade-up">
+                <h3 class="text-gradient">Hospital Huellitas Felices</h3>
+                <p><strong>Contacto:</strong> Dr. Carlos Bravo</p>
+                <p><strong>Dirección:</strong> Av. Insurgentes Sur 333, CDMX</p>
+                <p><strong>Teléfono:</strong> 555 111 0010</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-options">
+            <h2 class="text-gradient">Selecciona tu Estilo</h2>
+            <div class="color-circles">
+                <div class="circle c-rainbow active" data-theme-class="rainbow"></div>
+                <div class="circle c-blue" data-theme-class="blue"></div>
+                <div class="circle c-purple" data-theme-class="purple"></div>
+                <div class="circle c-orange" data-theme-class="orange"></div>
+                <div class="circle c-green" data-theme-class="green"></div>
+            </div>
+            <button id="closeModal"
+                style="margin-top: 40px; background: none; border: 1px solid #ccc; padding: 10px 20px; border-radius: 20px; color: var(--text-primary); cursor: pointer;">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="padding: 100px 60px; background: var(--bg-primary); border-top: 1px solid var(--glass-border);">
+        <div style="max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 100px;">
+            <div>
+                <img src="logo.jpg" style="height: 48px; margin-bottom: 30px;">
+                <p style="color: var(--text-secondary); max-width: 400px;">Brindando paz y consuelo a las familias
+                    cuando más lo necesitan. Forever Friends México.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 30px;">Contacto</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 10px;">CDMX, México</p>
+                <p style="color: var(--text-secondary);">contacto@foreverfriends.mx</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 30px;">Social</h4>
+                <a href="#"
+                    style="color: var(--text-secondary); display: block; margin-bottom: 10px; text-decoration: none;">Instagram</a>
+                <a href="#" style="color: var(--text-secondary); display: block; text-decoration: none;">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+
+        // Theme Modal Logic
+        const modal = document.getElementById('themeModal');
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeModal');
+
+        openBtn.onclick = () => modal.classList.add('active');
+        closeBtn.onclick = () => modal.classList.remove('active');
+
+        document.querySelectorAll('.circle').forEach(circle => {
+            circle.onclick = () => {
+                document.body.className = circle.dataset.themeClass;
+                document.querySelectorAll('.circle').forEach(c => c.classList.remove('active'));
+                circle.classList.add('active');
+                localStorage.setItem('themeClass', circle.dataset.themeClass);
+            };
+        });
+
+        // Dark Mode Logic
+        const darkToggle = document.getElementById('darkModeToggle');
+        darkToggle.onchange = (e) => {
+            const theme = e.target.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        };
+
+        // Header Scroll
+        window.onscroll = () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+
+        // Init saved theme
+        if (localStorage.getItem('themeClass')) document.body.className = localStorage.getItem('themeClass');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkToggle.checked = true;
+        }
+    </script>
+</body>
+
+</html>
