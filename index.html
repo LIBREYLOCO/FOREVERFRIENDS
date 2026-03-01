@@ -681,25 +681,35 @@
         closeTributeBtn.onclick = () => tributeModal.classList.remove('active');
 
         sendLoveBtn.onclick = (e) => {
-            const rect = sendLoveBtn.getBoundingClientRect();
+            const btnRect = sendLoveBtn.getBoundingClientRect();
+            const imgRect = document.getElementById('tributeImg').getBoundingClientRect();
+
             for (let i = 0; i < 50; i++) {
-                setTimeout(() => spawnHeart(rect.left + rect.width / 2, rect.top), i * 30);
+                setTimeout(() => spawnHeart(btnRect.left + btnRect.width / 2, btnRect.top, imgRect), i * 30);
             }
         };
 
-        function spawnHeart(x, y) {
+        function spawnHeart(x, y, targetRect) {
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
             heart.innerHTML = '❤️';
             heart.style.left = x + 'px';
             heart.style.top = y + 'px';
-            heart.style.setProperty('--tx', (Math.random() * 1000 - 500) + 'px');
-            heart.style.setProperty('--ty', (Math.random() * -800 - 200) + 'px');
-            heart.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
-            heart.style.setProperty('--duration', (Math.random() * 2 + 2) + 's');
-            heart.style.setProperty('--s', Math.random() * 0.8 + 0.5);
+
+            // Random point around the center of the image
+            const targetX = targetRect.left + (targetRect.width * 0.2) + Math.random() * (targetRect.width * 0.6);
+            const targetY = targetRect.top + (targetRect.height * 0.2) + Math.random() * (targetRect.height * 0.6);
+
+            const tx = targetX - x;
+            const ty = targetY - y;
+
+            heart.style.setProperty('--tx', tx + 'px');
+            heart.style.setProperty('--ty', ty + 'px');
+            heart.style.setProperty('--rot', (Math.random() * 360 - 180) + 'deg');
+            heart.style.setProperty('--duration', (Math.random() * 1.5 + 1.5) + 's');
+            heart.style.setProperty('--s', Math.random() * 0.5 + 0.8);
             heartsContainer.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
+            setTimeout(() => heart.remove(), 3500);
         }
 
         // SOS Guide Logic

@@ -481,17 +481,31 @@ nav a:hover {
     font-size: 24px;
     user-select: none;
     pointer-events: none;
-    animation: floatUp var(--duration, 2s) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: floatUp var(--duration, 2s) ease-in forwards;
 }
 
 @keyframes floatUp {
     0% {
-        transform: translateY(0) scale(var(--s, 1));
+        transform: translate(0, 0) scale(var(--s, 1));
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    75% {
+        transform: translate(calc(var(--tx) * 0.8), calc(var(--ty) * 0.8)) rotate(calc(var(--rot) * 0.5)) scale(calc(var(--s, 1) * 3));
+        opacity: 1;
+    }
+
+    90% {
+        transform: translate(calc(var(--tx) * 0.95), calc(var(--ty) * 0.95)) rotate(calc(var(--rot) * 0.8)) scale(calc(var(--s, 1) * 5));
         opacity: 1;
     }
 
     100% {
-        transform: translateY(var(--ty, -200px)) translateX(var(--tx)) rotate(var(--rot)) scale(0);
+        transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(calc(var(--s, 1) * 8));
         opacity: 0;
     }
 }
