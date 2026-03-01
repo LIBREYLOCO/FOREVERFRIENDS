@@ -374,31 +374,35 @@
         <div class="calculator-card" data-aos="fade-up">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
                 <div>
-                    <h4 style="margin-bottom: 20px;">Peso de tu mascota</h4>
+                    <h4 style="margin-bottom: 20px;">Tamaño de tu mascota</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-                        <div class="calc-option selected" data-type="weight" data-value="10">Pequeña (&lt;10kg)</div>
-                        <div class="calc-option" data-type="weight" data-value="25">Mediana (10-25kg)</div>
-                        <div class="calc-option" data-type="weight" data-value="50">Grande (&gt;25kg)</div>
+                        <div class="calc-option selected" data-type="size" data-value="pequena">Pequeña</div>
+                        <div class="calc-option" data-type="size" data-value="mediana">Mediana</div>
+                        <div class="calc-option" data-type="size" data-value="grande">Grande</div>
                     </div>
                 </div>
                 <div>
-                    <h4 style="margin-bottom: 20px;">Tipo de servicio</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <div class="calc-option selected" data-type="service" data-value="individual">Individual</div>
-                        <div class="calc-option" data-type="service" data-value="communal">Comunitaria</div>
+                    <h4 style="margin-bottom: 20px;">Plazo a pagar</h4>
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;">
+                        <div class="calc-option" data-type="months" data-value="3">3m</div>
+                        <div class="calc-option" data-type="months" data-value="6">6m</div>
+                        <div class="calc-option" data-type="months" data-value="9">9m</div>
+                        <div class="calc-option selected" data-type="months" data-value="12">12m</div>
+                        <div class="calc-option" data-type="months" data-value="18">18m</div>
                     </div>
                 </div>
             </div>
 
             <div id="calc-result"
                 style="text-align: center; padding: 40px; background: var(--bg-primary); border-radius: 20px; border: 1px dashed var(--accent-primary);">
-                <p style="color: var(--text-secondary);">Estimado aproximado:</p>
-                <h3 id="price-display" class="text-gradient" style="font-size: 48px; margin: 10px 0;">$2,400 - $3,500
-                    MXN</h3>
-                <p style="font-size: 14px; color: var(--text-secondary);">El precio final puede variar según la urna
-                    seleccionada.</p>
-                <a href="contacto.html" class="btn-premium" style="margin-top: 30px;"><span>Bloquear este precio
-                        ahora</span></a>
+                <p style="color: var(--text-secondary);">Inversión mensual:</p>
+                <h3 id="price-display" class="text-gradient" style="font-size: 48px; margin: 10px 0;"></h3>
+                <p id="total-display-info"
+                    style="font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 5px;"></p>
+                <p style="font-size: 14px; color: var(--text-secondary);">Plan de previsión a futuro.</p>
+                <a href="#contacto" id="btn-reserve" class="btn-premium" style="margin-top: 30px;"
+                    onclick="reservePlan(event)"><span>Reserva
+                        Ahora</span></a>
             </div>
         </div>
     </section>
@@ -445,7 +449,7 @@
     <span class="section-label">Conversemos</span>
     <h2 class="text-gradient" style="text-align: center;">Estamos para apoyarte</h2>
 
-    <div class="contact-form-wrapper" data-aos="fade-up">
+    <div class="contact-form-wrapper" data-aos="fade-up" id="contacto">
         <form id="contactForm">
             <div class="form-group">
                 <label>Nombre Completo</label>
@@ -725,14 +729,47 @@
         });
 
         function updatePrice() {
-            const weight = document.querySelector('.calc-option[data-type="weight"].selected').dataset.value;
-            const service = document.querySelector('.calc-option[data-type="service"].selected').dataset.value;
+            const size = document.querySelector('.calc-option[data-type="size"].selected').dataset.value;
+            const months = parseInt(document.querySelector('.calc-option[data-type="months"].selected').dataset.value);
 
-            let base = weight * 100;
-            if (service === 'individual') base += 1500;
-            else base += 800;
+            let basePrice = 2500;
+            if (size === 'mediana') basePrice = 4000;
+            else if (size === 'grande') basePrice = 6500;
 
-            priceDisplay.innerText = `$${base} - $${base + 1200} MXN`;
+            let total = basePrice;
+            // Interés del 9% anual si es a 18 meses (1.5 años)
+            if (months === 18) {
+                total = basePrice + (basePrice * 0.09 * 1.5);
+            }
+
+            const monthly = total / months;
+
+            priceDisplay.innerHTML = `$${monthly.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} <span style="font-size: 20px; color: var(--text-secondary);">/ mes</span>`;
+            document.getElementById('total-display-info').innerHTML = `Total final: $${total.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} MXN`;
+        }
+
+        // Initialize calculator price
+        updatePrice();
+
+        function reservePlan(e) {
+            e.preventDefault();
+            const sizeMap = {
+                'pequena': 'Pequeña (<10kg)',
+                'mediana': 'Mediana (10-25kg)',
+                'grande': 'Grande (>25kg)'
+            };
+            const sizeValue = document.querySelector('.calc-option[data-type="size"].selected').dataset.value;
+            const sizeLabel = sizeMap[sizeValue];
+            const months = document.querySelector('.calc-option[data-type="months"].selected').dataset.value;
+
+            const totalText = document.getElementById('total-display-info').innerText;
+            const monthlyHtml = document.getElementById('price-display').innerText;
+
+            const proposal = `Hola, me interesa reservar el siguiente plan de previsión a futuro:\n\n- Tamaño de mascota: ${sizeLabel}\n- Plazo a pagar: ${months} meses\n- Inversión mensual: ${monthlyHtml}\n- ${totalText}\n\nPor favor, pónganse en contacto conmigo para más detalles.`;
+
+            document.getElementById('message').value = proposal;
+            document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('name').focus();
         }
 
         // Reveal Items on Scroll (Complementary to AOS)
