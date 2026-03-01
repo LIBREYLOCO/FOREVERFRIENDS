@@ -480,17 +480,18 @@ nav a:hover {
     color: #ff4b2b;
     font-size: 24px;
     user-select: none;
-    animation: floatUp 2s ease-out forwards;
+    pointer-events: none;
+    animation: floatUp var(--duration, 2s) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes floatUp {
     0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(var(--s, 1));
         opacity: 1;
     }
 
     100% {
-        transform: translateY(-200px) translateX(var(--tx)) rotate(var(--rot)) scale(0);
+        transform: translateY(var(--ty, -200px)) translateX(var(--tx)) rotate(var(--rot)) scale(0);
         opacity: 0;
     }
 }

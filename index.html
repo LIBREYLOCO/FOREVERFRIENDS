@@ -682,8 +682,8 @@
 
         sendLoveBtn.onclick = (e) => {
             const rect = sendLoveBtn.getBoundingClientRect();
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => spawnHeart(rect.left + rect.width / 2, rect.top), i * 100);
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => spawnHeart(rect.left + rect.width / 2, rect.top), i * 30);
             }
         };
 
@@ -693,10 +693,13 @@
             heart.innerHTML = '❤️';
             heart.style.left = x + 'px';
             heart.style.top = y + 'px';
-            heart.style.setProperty('--tx', (Math.random() * 200 - 100) + 'px');
-            heart.style.setProperty('--rot', (Math.random() * 360) + 'deg');
+            heart.style.setProperty('--tx', (Math.random() * 1000 - 500) + 'px');
+            heart.style.setProperty('--ty', (Math.random() * -800 - 200) + 'px');
+            heart.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+            heart.style.setProperty('--duration', (Math.random() * 2 + 2) + 's');
+            heart.style.setProperty('--s', Math.random() * 0.8 + 0.5);
             heartsContainer.appendChild(heart);
-            setTimeout(() => heart.remove(), 2000);
+            setTimeout(() => heart.remove(), 4000);
         }
 
         // SOS Guide Logic
