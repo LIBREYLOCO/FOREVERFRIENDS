@@ -2,27 +2,28 @@
 
 :root {
     /* Color Palette */
-    --onenine-primary-gradient: linear-gradient(75deg, #665BEA 9.47%, #AD27DC 45.29%, #E7854E 98.01%);
+    --onenine-primary-gradient: linear-gradient(135deg, #EAD6CB 0%, #E3C3B0 50%, #CFA58E 100%);
     --onenine-black: #161616;
     --onenine-dark-grey: #272727;
-    --onenine-light-grey: #F3F3F3;
+    --onenine-light-grey: #FAFAFA;
     --onenine-white: #ffffff;
 
-    /* Default - Rainbow Theme */
+    /* Default - Elegant Champagne Theme */
     --accent-gradient: var(--onenine-primary-gradient);
     --bg-primary: #ffffff;
-    --bg-secondary: #F3F3F3;
-    --text-primary: #181818;
+    --bg-secondary: #fdfbf9;
+    --text-primary: #2c2927;
     --text-secondary: #747474;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.5);
 
     /* Typography */
     --font-main: 'Inter', sans-serif;
-    --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --font-heading: 'Playfair Display', serif;
+    --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     /* Smoother premium transition */
-    --letter-spacing-tight: -0.04em;
-    --letter-spacing-normal: -0.015em;
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0em;
 }
 
 /* Base Refinements */
@@ -30,14 +31,15 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    cursor: none;
-    /* Hide default cursor for custom one */
+    /* cursor: none; Removed for a more professional look */
 }
 
 h1,
 h2,
 h3 {
+    font-family: var(--font-heading);
     letter-spacing: var(--letter-spacing-tight);
+    font-weight: 500;
 }
 
 p {
@@ -46,16 +48,8 @@ p {
 
 /* Custom Cursor */
 .custom-cursor {
-    width: 20px;
-    height: 20px;
-    background: var(--accent-gradient);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-    transform: translate(-50%, -50%);
+    display: none;
+    /* Removed for a more premium professional feel */
 }
 
 .custom-cursor.hover {
@@ -76,8 +70,8 @@ p {
     z-index: -1;
     overflow: hidden;
     background-color: var(--bg-primary);
-    filter: blur(100px);
-    opacity: 0.4;
+    filter: blur(140px);
+    opacity: 0.25;
     transition: background-color 0.8s ease;
 }
 
@@ -213,14 +207,14 @@ header.scrolled {
 .logo-link {
     background: var(--glass-bg);
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 12px;
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
 }
 
 .logo-wrapper img,
@@ -432,7 +426,7 @@ nav a:hover {
 .swiper-slide {
     width: 320px;
     height: 400px;
-    border-radius: 24px;
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
@@ -441,7 +435,7 @@ nav a:hover {
 
 .swiper-slide:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* Tribute Elements */
@@ -502,7 +496,7 @@ nav a:hover {
 
 .blog-card-premium {
     background: var(--bg-primary);
-    border-radius: 24px;
+    border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
@@ -510,7 +504,7 @@ nav a:hover {
 
 .blog-card-premium:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .blog-card-img {
@@ -550,12 +544,12 @@ nav a:hover {
     height: 80px;
     margin-bottom: 30px;
     background: var(--bg-primary);
-    border-radius: 24px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     border: 2px solid var(--glass-border);
     transition: var(--transition);
 }
@@ -624,9 +618,9 @@ nav a:hover {
     margin: 40px auto 0;
     padding: 60px;
     background: var(--bg-primary);
-    border-radius: 40px;
+    border-radius: 12px;
     border: 1px solid var(--glass-border);
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.03);
 }
 
 .form-group {
@@ -646,7 +640,7 @@ nav a:hover {
 .form-group textarea {
     width: 100%;
     padding: 18px 24px;
-    border-radius: 16px;
+    border-radius: 12px;
     border: 1px solid var(--glass-border);
     background: var(--bg-secondary);
     color: var(--text-primary);
@@ -674,7 +668,7 @@ nav a:hover {
     max-width: 900px;
     width: 90%;
     background: var(--bg-primary);
-    border-radius: 40px;
+    border-radius: 12px;
     padding: 80px;
     position: relative;
     max-height: 90vh;
@@ -701,7 +695,7 @@ nav a:hover {
 
 .card.review-single {
     background: var(--bg-secondary);
-    border-radius: 32px;
+    border-radius: 12px;
     padding: 60px;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
@@ -740,7 +734,7 @@ nav a:hover {
 .theme-options {
     background: var(--bg-primary);
     padding: 60px;
-    border-radius: 40px;
+    border-radius: 12px;
     text-align: center;
     max-width: 500px;
     width: 90%;
@@ -856,7 +850,7 @@ nav a:hover {
     width: 90%;
     max-width: 600px;
     padding: 60px;
-    border-radius: 40px;
+    border-radius: 12px;
     border: 1px solid var(--glass-border);
     position: relative;
     text-align: center;
@@ -897,7 +891,7 @@ nav a:hover {
     margin: 40px auto;
     background: var(--bg-primary);
     padding: 60px;
-    border-radius: 40px;
+    border-radius: 12px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
 }
@@ -962,7 +956,7 @@ nav a:hover {
 .roadmap-content {
     background: var(--bg-primary);
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 12px;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
     height: 100%;
@@ -971,7 +965,7 @@ nav a:hover {
 .roadmap-content:hover {
     transform: translateY(-10px);
     border-color: var(--accent-primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .roadmap-icon {
