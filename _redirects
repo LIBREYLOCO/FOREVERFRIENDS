@@ -1,0 +1,17 @@
+# Este sitio quedó reemplazado: la web pública ahora vive en formyfriends.mx,
+# servida desde el propio sistema (FOR MY FRIENDS APP/public/landing/).
+#
+# Todo se redirige con 301 (permanente) para que ningún enlace publicado muera
+# y el posicionamiento se transfiera al dominio bueno. El ! fuerza el redirect
+# aunque el archivo exista en este sitio.
+#
+# Las páginas cambiaron de ruta al unificarse, así que se mapean una a una
+# antes de la regla general.
+/quienes-somos.html   https://formyfriends.mx/nosotros          301!
+/contacto.html        https://formyfriends.mx/contacto          301!
+/blog.html            https://formyfriends.mx/blog              301!
+/veterinarias.html    https://formyfriends.mx/red-veterinaria   301!
+/index.html           https://formyfriends.mx/                  301!
+
+# Todo lo demás a la home.
+/*                    https://formyfriends.mx/:splat            301!
